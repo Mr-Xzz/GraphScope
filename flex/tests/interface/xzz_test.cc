@@ -52,23 +52,46 @@ struct PropertyGetter {
 
 class NbrList {
  public:
-  class Iterator {};
-  [[nodiscard]] Iterator begin() const;
-  Iterator end() const;
-  inline size_t size() const;
+  using vid_t = uint64_t;
+  using Iterator = typename std::vector<vid_t>::const_iterator;
+//  class Iterator {};
+  [[nodiscard]] Iterator begin() const {
+    return nbrs_.begin();
+  }
+  [[nodiscard]] Iterator end() const {
+    return nbrs_.end();
+  }
+  inline size_t size() const {
+    return nbrs_.size();
+  }
+
+ private:
+  std::vector<vid_t> nbrs_;
 };
 
 class NbrListArray {
  public:
-  NbrListArray() {}
+  NbrListArray() = default;
   ~NbrListArray() = default;
-
-  NbrList get(size_t index) const;
-
-  size_t size() const;
-
-  void resize(size_t size);
+  // 返回指定索引处的 NbrList
+  [[nodiscard]] NbrList get(size_t index) const {
+    if (index < lists_.size()) {
+      return lists_[index];
+    }
+    throw std::out_of_range("Index out of range");
+  }
+  // 返回 NbrList 数组的大小
+  [[nodiscard]] size_t size() const {
+    return lists_.size();
+  }
+  // 改变 NbrList 数组的大小
+  void resize(size_t new_size) {
+    lists_.resize(new_size);
+  }
+ private:
+  std::vector<NbrList> lists_; // 存储多个 NbrList 的向量
 };
+
 
 template <typename T>
 class AdjList {
@@ -130,15 +153,39 @@ class AdjListArray {
 // Real implementation of the storage
 class ActualStorage {
  public:
-  // 定义5个string数组，使用vector容器
+  using vertex_id_t = uint64_t;
+  using label_id_t = uint16_t;
+
+  const std::string kLabelConnector = "::";
+
+  // 定义5个string数组，使用vector容器，存储原始数据
   std::vector<std::string> relationTypes;
   std::vector<std::string> srcDomainAndTypes;
   std::vector<std::string> destDomainAndTypes;
   std::vector<std::string> srcIDs;
   std::vector<std::string> destIDs;
-  std::istringstream ssTotal;
+
+  // 定义图接口所需要的数据结构
+  std::unordered_map<std::string, label_id_t> vertexLabelToId;
+  std::unordered_map<label_id_t, std::string> vertexIdToLabel;
+  unsigned int vertexLabelNum;
+  std::unordered_map<std::string, label_id_t> edgeLabelToId;
+  std::unordered_map<label_id_t, std::string> edgeIdToLabel;
+  unsigned int edgeLabelNum;
+  std::unordered_map<std::string, std::vector<std::pair<std::string, gs::PropertyType>>> edgeTripleToProperty;
+  std::unordered_map<label_id_t, std::vector<std::pair<std::string, gs::PropertyType>>> vertexToProperty;
+
+  std::unordered_map<std::string, vertex_id_t> vertexToId;
+  std::unordered_map<vertex_id_t, std::string> IdToVertex;
+  std::unordered_map<label_id_t, std::vector<vertex_id_t>> vertexLabelIdToIds;
+
+  std::unordered_set<std::string> edges;
+  std::unordered_map<std::string, uint16_t> edgeTripleToNum;
+
+  inline void Init();
   void LoadData() {
     // 定义文件名
+    std::istringstream ssTotal;
     std::string filename = "/workspace/GraphScope-zl/flex/tests/interface/example_data.csv";
 
     // 如果文件存在，打开文件
@@ -156,7 +203,6 @@ class ActualStorage {
 
     // 将读入的字符串存储到 std::istringstream 中
     ssTotal.str(oss.str());
-//    ssTotal.str(GetStaticSampleTopo());
     std::string line;
     std::getline(ssTotal, line);
     while (std::getline(ssTotal, line)) {
@@ -186,9 +232,10 @@ class ActualStorage {
                   << destIDs[i] << std::endl;
       }
     }
+    Init();
+    std::cout << "Initialize graph interface successfully." << std::endl;
   }
 };
-
 
 //基于实际的存储实现，封装出访问接口
 class TestGraph {
@@ -212,69 +259,89 @@ class TestGraph {
       gs::mutable_csr_graph_impl::UntypedPropertyGetter;
 
   //////////////////////////////Graph Metadata Related////////////
-  inline size_t VertexLabelNum() const {
-    throw std::runtime_error("Not implemented");
+  [[nodiscard]] inline size_t VertexLabelNum() const {
+    return storage_.vertexLabelNum;
   }
 
-  inline size_t EdgeLabelNum() const {
-    throw std::runtime_error("Not implemented");
+  [[nodiscard]] inline size_t EdgeLabelNum() const {
+    return storage_.edgeLabelNum;
   }
 
-  inline size_t VertexNum() const {
-    throw std::runtime_error("Not implemented");
+  [[nodiscard]] inline size_t VertexNum() const {
+    return storage_.vertexToId.size();
   }
 
-  inline size_t VertexNum(const label_id_t& label) const {
-    throw std::runtime_error("Not implemented");
+  [[nodiscard]] inline size_t VertexNum(const label_id_t& label) const {
+    auto it = storage_.vertexLabelIdToIds.find(label);
+    if (it != storage_.vertexLabelIdToIds.end()) {
+      return it -> second.size();
+    } else {
+      return 0;
+    }
   }
 
-  inline size_t EdgeNum() const { throw std::runtime_error("Not implemented"); }
+  [[nodiscard]] inline size_t EdgeNum() const {
+    return storage_.edges.size();
+  }
 
-  inline size_t EdgeNum(label_id_t src_label, label_id_t dst_label,
+  [[nodiscard]] inline size_t EdgeNum(label_id_t src_label, label_id_t dst_label,
                         label_id_t edge_label) const {
-    throw std::runtime_error("Not implemented");
+
+    std::string edgeTriple = std::to_string(edge_label) + storage_.kLabelConnector +
+                             std::to_string(src_label) + storage_.kLabelConnector + std::to_string(dst_label);
+    auto it = storage_.edgeTripleToNum.find(edgeTriple);
+    if (it != storage_.edgeTripleToNum.end()) {
+      return it -> second;
+    } else {
+      return 0;
+    }
   }
 
-  label_id_t GetVertexLabelId(const std::string& label) const {
-    std::cout<< "label: " << label << std::endl;
-    throw std::runtime_error("Not implemented");
+  [[nodiscard]] label_id_t GetVertexLabelId(const std::string& label) const {
+    return storage_.vertexLabelToId.at(label);
   }
 
-  label_id_t GetEdgeLabelId(const std::string& label) const {
-    throw std::runtime_error("Not implemented");
+  [[nodiscard]] label_id_t GetEdgeLabelId(const std::string& label) const {
+    return storage_.edgeLabelToId.at(label);
   }
 
-  std::string GetVertexLabelName(label_id_t index) const {
-    throw std::runtime_error("Not implemented");
+  [[nodiscard]] std::string GetVertexLabelName(label_id_t index) const {
+    return storage_.vertexIdToLabel.at(index);
   }
 
-  std::string GetEdgeLabelName(label_id_t index) const {
-    throw std::runtime_error("Not implemented");
+  [[nodiscard]] std::string GetEdgeLabelName(label_id_t index) const {
+    return storage_.edgeIdToLabel.at(index);
   }
 
-  bool ExitVertexLabel(const std::string& label) const {
-    throw std::runtime_error("Not implemented");
+  [[nodiscard]] bool ExitVertexLabel(const std::string& label) const {
+    return storage_.vertexLabelToId.count(label) > 0;
   }
 
-  bool ExitEdgeLabel(const std::string& edge_label) const {
-    throw std::runtime_error("Not implemented");
+  [[nodiscard]] bool ExitEdgeLabel(const std::string& edge_label) const {
+    return storage_.edgeLabelToId.count(edge_label) > 0;
   }
 
-  bool ExitEdgeTriplet(const label_id_t& src_label, const label_id_t& dst_label,
+  [[nodiscard]] bool ExitEdgeTriplet(const label_id_t& src_label, const label_id_t& dst_label,
                        const label_id_t& edge_label) const {
-    throw std::runtime_error("Not implemented");
+    std::string key = std::to_string(edge_label) + storage_.kLabelConnector +
+                          std::to_string(src_label) + storage_.kLabelConnector +
+                          std::to_string(dst_label);
+    return storage_.edgeTripleToProperty.count(key) > 0;
   }
 
-  std::vector<std::pair<std::string, gs::PropertyType>>
+  [[nodiscard]] std::vector<std::pair<std::string, gs::PropertyType>>
   GetEdgeTripletPropertyMeta(const label_id_t& src_label,
                              const label_id_t& dst_label,
                              const label_id_t& label) const {
-    throw std::runtime_error("Not implemented");
+    std::string key = std::to_string(label) + storage_.kLabelConnector +
+                      std::to_string(src_label) + storage_.kLabelConnector +
+                      std::to_string(dst_label);
+    return storage_.edgeTripleToProperty.at(key);
   }
 
-  std::vector<std::pair<std::string, gs::PropertyType>> GetVertexPropertyMeta(
+  [[nodiscard]] std::vector<std::pair<std::string, gs::PropertyType>> GetVertexPropertyMeta(
       label_id_t label) const {
-    throw std::runtime_error("Not implemented");
+    return storage_.vertexToProperty.at(label);
   }
 
   //////////////////////////////Vertex-related Interface////////////
@@ -308,19 +375,34 @@ class TestGraph {
   void ScanVertices(const label_id_t& label_id,
                     const std::tuple<gs::PropertySelector<T>...>& selectors,
                     const FUNC_T& func) const {
-    throw std::runtime_error("Not implemented");
+    for (auto v : storage_.vertexLabelIdToIds.at(label_id)) {
+      // TODO 获取属性
+//      auto props = GetPropertiesForVertex(v, selectors);
+      std::tuple<T...> props{};
+      // 调用用户提供的函数
+      func(v, props);
+    }
   }
 
   /**
    * @brief ScanVertices scans all vertices with the given label with give
    * original id.
    * @param label_id The label id.
-   * @param oid The original id.
+   * @param oid The original id.  这里的 original id 是什么意思？
    * @param vid The result internal id.
    */
-  bool ScanVerticesWithOid(const label_id_t& label_id, gs::Any oid,
+  [[nodiscard]] bool ScanVerticesWithOid(const label_id_t& label_id, gs::Any oid,
                            vertex_id_t& vid) const {
-    throw std::runtime_error("Not implemented");
+    try {
+      vertex_id_t vid_temp = oid.AsInt64();
+      if (storage_.IdToVertex.count(vid_temp)) {
+        vid = vid_temp;
+        return true;
+      }
+    } catch (std::exception& e) {
+      std::cout<< "error in ScanVerticesWithOid: " << e.what() << std::endl;
+    }
+    return false;
   }
 
   /**
@@ -332,12 +414,12 @@ class TestGraph {
    * @return The property getter.
    */
   template <typename T>
-  gs::mutable_csr_graph_impl::PropertyGetter<T> GetVertexPropertyGetter(
+  [[nodiscard]] gs::mutable_csr_graph_impl::PropertyGetter<T> GetVertexPropertyGetter(
       const label_id_t& label_id, const std::string& prop_name) const {
     throw std::runtime_error("Not implemented");
   }
 
-  gs::mutable_csr_graph_impl::UntypedPropertyGetter
+  [[nodiscard]] gs::mutable_csr_graph_impl::UntypedPropertyGetter
   GetUntypedVertexPropertyGetter(const label_id_t& label_id,
                                  const std::string& prop_name) const {
     throw std::runtime_error("Not implemented");
@@ -400,24 +482,24 @@ class ReadExample {
   results::CollectiveResults Query(TestGraph& graph) const {
     // Query the graph
     // Get the vertex label id
-    label_id_t person_label_id = graph.GetVertexLabelId("person");
+    label_id_t k8s_deployment_label_id = graph.GetVertexLabelId("k8s@deployment");
     // Get the property getter for the vertex label
     auto prop_getter =
-        graph.GetVertexPropertyGetter<int32_t>(person_label_id, "age");
+        graph.GetVertexPropertyGetter<int32_t>(k8s_deployment_label_id, "age");
     // Get the property getter for the vertex label
     auto prop_getter2 =
-        graph.GetVertexPropertyGetter<std::string>(person_label_id, "name");
+        graph.GetVertexPropertyGetter<std::string>(k8s_deployment_label_id, "name");
 
     results::CollectiveResults results;
-    // find the person with id 1
+    // find the k8s_deployment with id 1
     vertex_id_t vid;
-    if (graph.ScanVerticesWithOid(person_label_id, 1, vid)) {
+    if (graph.ScanVerticesWithOid(k8s_deployment_label_id, 1, vid)) {
       // Get the age of the person
       int32_t age = prop_getter.Get(vid);
       // Get the name of the person
       std::string name = prop_getter2.Get(vid);
       // Print the age and name
-      std::cout << "Person with id 1 has age: " << age << " and name: " << name
+      std::cout << "k8s_deployment with id 1 has age: " << age << " and name: " << name
                 << std::endl;
       auto record = results.add_results()->mutable_record();
       {
@@ -433,11 +515,70 @@ class ReadExample {
       }
 
     } else {
-      std::cout << "Person with id 1 not found" << std::endl;
+      std::cout << "k8s_deployment with id 1 not found" << std::endl;
     }
     return results;
   }
 };
+
+
+class DescribeGraph {
+ public:
+  using vertex_id_t = TestGraph::vertex_id_t;
+  using label_id_t = TestGraph::label_id_t;
+
+  DescribeGraph() = default;
+  // Query function for query class
+  results::CollectiveResults Query(TestGraph& graph) const {
+    // Query the graph Metadata
+    size_t vertexLabelNum = graph.VertexLabelNum();
+    size_t EdgeLabelNum = graph.EdgeLabelNum();
+    size_t VertexNum = graph.VertexNum();
+    size_t VertexNumWithId0 = graph.VertexNum(0);
+    size_t EdgeNum = graph.EdgeNum();
+    size_t EdgeNumWithTriple001 = graph.EdgeNum(0,1,0);
+    std::string vertexLabelNameWithId0 = graph.GetVertexLabelName(0);
+    std::string edgeLabelNameWithId0 = graph.GetEdgeLabelName(0);
+    label_id_t vertexLabelId = graph.GetVertexLabelId(vertexLabelNameWithId0);
+    label_id_t edgeLabelId = graph.GetEdgeLabelId(edgeLabelNameWithId0);
+    bool vertexLabelExistSpecific = graph.ExitVertexLabel("k8s@deployment");
+    bool edgeLabelExistSpecific = graph.ExitEdgeLabel("contains");
+    bool existEdgeTriplet001 = graph.ExitEdgeTriplet(0,1,0);
+    std::cout << "vertexLabelNum: " << vertexLabelNum << std::endl << "EdgeLabelNum: " << EdgeLabelNum << std::endl
+              << "VertexNum: " << VertexNum << std::endl << "VertexNumWithId0: " << VertexNumWithId0 << std::endl
+              << "EdgeNum: " << EdgeNum << std::endl << "EdgeNumWithTriple001: " << EdgeNumWithTriple001 << std::endl
+              << "vertexLabelNameWithId0: " << vertexLabelNameWithId0 << std::endl << "edgeLabelNameWithId0: " << edgeLabelNameWithId0
+              << std::endl << "vertexLabelId: " << vertexLabelId << std::endl << "edgeLabelId: " << edgeLabelId << std::endl
+              << "vertexLabelExistSpecific: " << vertexLabelExistSpecific << std::endl << "edgeLabelExistSpecific: " << edgeLabelExistSpecific
+              << std::endl << "existEdgeTriplet001: " << existEdgeTriplet001 << std::endl;
+
+    results::CollectiveResults results;
+    auto record = results.add_results()->mutable_record();
+    {
+      auto col = record->add_columns();
+      col->mutable_name_or_id()->set_name("vertexLabelNum");
+      col->mutable_entry()->mutable_element()->mutable_object()->set_i32(vertexLabelNum);
+    }
+    {
+      auto col = record->add_columns();
+      col->mutable_name_or_id()->set_name("EdgeLabelNum");
+      col->mutable_entry()->mutable_element()->mutable_object()->set_i32(EdgeLabelNum);
+    }
+    {
+      auto col = record->add_columns();
+      col->mutable_name_or_id()->set_name("VertexNum");
+      col->mutable_entry()->mutable_element()->mutable_object()->set_i32(VertexNum);
+    }
+    {
+      auto col = record->add_columns();
+      col->mutable_name_or_id()->set_name("EdgeNum");
+      col->mutable_entry()->mutable_element()->mutable_object()->set_i32(EdgeNum);
+    }
+    return results;
+  }
+};
+
+
 
 int main(int argc, char** argv) {
   //
@@ -448,7 +589,86 @@ int main(int argc, char** argv) {
   std::this_thread::sleep_for(std::chrono::seconds(1));
 
   TestGraph graph(storage);
-  ReadExample app;
-  auto results = app.Query(graph);
+  DescribeGraph describeGraph;
+  describeGraph.Query(graph);
+//  ReadExample app;
+//  auto results = app.Query(graph);
   return 0;
+}
+
+
+void ActualStorage::Init() {
+  int nextVertexId = 0;
+  for(int i=0;i<2;i++) {
+    auto target = i ? srcIDs : destIDs;
+    for (const auto& item : target) {
+      auto it = vertexToId.find(item);
+      if (it == vertexToId.end()) {
+        vertex_id_t id = nextVertexId++;
+        vertexToId[item] = id;
+        IdToVertex[id] = item;
+      }
+    }
+  }
+
+
+  int nextVertexLabelId = 0;
+  for (long unsigned int i=0; i<relationTypes.size(); i++) {
+    for (int j=0;j<2;j++) {
+      auto& item = j ? srcDomainAndTypes.at(i) : destDomainAndTypes.at(i);
+      auto& idStr = j ? srcIDs.at(i) : destIDs.at(i);
+      auto it = vertexLabelToId.find(item);
+      if (it == vertexLabelToId.end()) {
+        label_id_t id = nextVertexLabelId++;
+        vertexLabelToId[item] = id;
+        vertexIdToLabel[id] = item;
+        vertexLabelIdToIds[id] = std::vector<vertex_id_t>();
+      } else {
+        label_id_t id = vertexLabelToId[item];
+        vertexLabelIdToIds[id].emplace_back(vertexToId[idStr]);
+      }
+    }
+  }
+
+  int nextEdgeLabelId = 0;
+  for (const auto& item : relationTypes) {
+    auto it = edgeLabelToId.find(item);
+    if (it == edgeLabelToId.end()) {
+      label_id_t id = nextEdgeLabelId++;
+      edgeLabelToId[item] = id;
+      edgeIdToLabel[id] = item;
+    }
+  }
+  std::cout<<"edgeLabelToId.size():"<<edgeLabelToId.size()<<std::endl;
+  vertexLabelNum = vertexLabelToId.size();
+  edgeLabelNum = edgeLabelToId.size();
+
+  for( long unsigned int i=0; i<relationTypes.size(); i++) {
+    label_id_t relationTypeId = edgeLabelToId.find(relationTypes[i])->second;
+    label_id_t srcLabelId = vertexLabelToId.find(srcDomainAndTypes[i])->second;
+    label_id_t destLabelId = vertexLabelToId.find(destDomainAndTypes[i])->second;
+    std::string edgeTriple = std::to_string(relationTypeId) + kLabelConnector +
+                             std::to_string(srcLabelId) + kLabelConnector + std::to_string(destLabelId);
+    if (edgeTripleToNum.count(edgeTriple)) {
+      edgeTripleToNum[edgeTriple]++;
+    } else {
+      edgeTripleToNum[edgeTriple] = 1;
+    }
+
+    edges.insert(edgeTriple);
+    std::string srcId = srcIDs[i];
+    std::string destId = destIDs[i];
+
+    // 目前示例数据里面都没有属性，所以先初始化一个空的vector
+    if (edgeTripleToProperty.find(edgeTriple) == edgeTripleToProperty.end()) {
+      std::cout<<edgeTriple<<std::endl;
+      edgeTripleToProperty[edgeTriple] = std::vector<std::pair<std::string, gs::PropertyType>>();
+    }
+    if (vertexToProperty.find(srcLabelId) == vertexToProperty.end()){
+      vertexToProperty[srcLabelId] = std::vector<std::pair<std::string, gs::PropertyType>>();
+    }
+    if (vertexToProperty.find(destLabelId) == vertexToProperty.end()){
+      vertexToProperty[destLabelId] = std::vector<std::pair<std::string, gs::PropertyType>>();
+    }
+  }
 }
