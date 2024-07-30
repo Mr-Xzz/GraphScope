@@ -54,7 +54,7 @@ class NbrList {
  public:
   using vid_t = uint64_t;
   using Iterator = typename std::vector<vid_t>::const_iterator;
-//  class Iterator {};
+  //  class Iterator {};
   [[nodiscard]] Iterator begin() const {
     return nbrs_.begin();
   }
@@ -65,31 +65,43 @@ class NbrList {
     return nbrs_.size();
   }
 
+  std::vector<vid_t>& get_vector() {
+    return nbrs_;
+  }
+
  private:
   std::vector<vid_t> nbrs_;
 };
 
 class NbrListArray {
  public:
+  using vid_t = uint64_t;
   NbrListArray() = default;
   ~NbrListArray() = default;
   // 返回指定索引处的 NbrList
   [[nodiscard]] NbrList get(size_t index) const {
-    if (index < lists_.size()) {
-      return lists_[index];
-    }
-    throw std::out_of_range("Index out of range");
+    return data_.at(index);
   }
   // 返回 NbrList 数组的大小
   [[nodiscard]] size_t size() const {
-    return lists_.size();
+    return data_.size();
   }
   // 改变 NbrList 数组的大小
   void resize(size_t new_size) {
-    lists_.resize(new_size);
+    data_.resize(new_size);
   }
+
+
+
+  // 自己加的方法
+  std::vector<vid_t>& get_vector(size_t i) {
+   if (data_.size() > i) {
+     return data_.at(i).get_vector();
+   }
+   throw std::runtime_error("index out of range");
+ }
  private:
-  std::vector<NbrList> lists_; // 存储多个 NbrList 的向量
+  std::vector<NbrList> data_;
 };
 
 
@@ -153,8 +165,20 @@ class AdjListArray {
 // Real implementation of the storage
 class ActualStorage {
  public:
+
+//  struct Edge {
+//    std::string src_id;
+//    std::string dst_id;
+//    std::string relationType;
+//    std::string srcDomainAndType;
+//    std::string destDomainAndType;
+//  };
+
+
   using vertex_id_t = uint64_t;
   using label_id_t = uint16_t;
+
+  using edge_id_t = uint64_t;
 
   const std::string kLabelConnector = "::";
 
@@ -179,8 +203,9 @@ class ActualStorage {
   std::unordered_map<vertex_id_t, std::string> IdToVertex;
   std::unordered_map<label_id_t, std::vector<vertex_id_t>> vertexLabelIdToIds;
 
-  std::unordered_set<std::string> edges;
-  std::unordered_map<std::string, uint16_t> edgeTripleToNum;
+  // 不需要，原始数据就是edges
+//  std::unordered_set<std::string> edges;
+  std::unordered_map<std::string, std::vector<edge_id_t>> edgeTripleToIds;
 
   inline void Init();
   void LoadData() {
@@ -281,7 +306,7 @@ class TestGraph {
   }
 
   [[nodiscard]] inline size_t EdgeNum() const {
-    return storage_.edges.size();
+    return storage_.relationTypes.size();
   }
 
   [[nodiscard]] inline size_t EdgeNum(label_id_t src_label, label_id_t dst_label,
@@ -289,9 +314,9 @@ class TestGraph {
 
     std::string edgeTriple = std::to_string(edge_label) + storage_.kLabelConnector +
                              std::to_string(src_label) + storage_.kLabelConnector + std::to_string(dst_label);
-    auto it = storage_.edgeTripleToNum.find(edgeTriple);
-    if (it != storage_.edgeTripleToNum.end()) {
-      return it -> second;
+    auto it = storage_.edgeTripleToIds.find(edgeTriple);
+    if (it != storage_.edgeTripleToIds.end()) {
+      return it -> second.size();
     } else {
       return 0;
     }
@@ -394,11 +419,17 @@ class TestGraph {
   [[nodiscard]] bool ScanVerticesWithOid(const label_id_t& label_id, gs::Any oid,
                            vertex_id_t& vid) const {
     try {
-      vertex_id_t vid_temp = oid.AsInt64();
-      if (storage_.IdToVertex.count(vid_temp)) {
+      const std::string& oidStr = oid.AsString();
+      std::cout<< "oidStr: " << oidStr << std::endl;
+      vertex_id_t vid_temp = storage_.vertexToId.at(oidStr);
+      std::cout<< "oidStr: " << oidStr << "vid_temp: " << vid_temp << std::endl;
+      auto vec = storage_.vertexLabelIdToIds.at(label_id);
+      std::cout<< "vec: " << vec.size() << std::endl;
+      if (std::find(vec.begin(), vec.end(), vid_temp) != vec.end()) {
         vid = vid_temp;
         return true;
       }
+      throw std::invalid_argument("cannot find specific Vertices");
     } catch (std::exception& e) {
       std::cout<< "error in ScanVerticesWithOid: " << e.what() << std::endl;
     }
@@ -441,7 +472,7 @@ class TestGraph {
                            const std::vector<vertex_id_t>& vids,
                            const gs::Direction& direction,
                            size_t limit = INT_MAX) const {
-    throw std::runtime_error("Not implemented");
+
   }
 
   /**
@@ -451,13 +482,54 @@ class TestGraph {
    * of the edges, and vice versa when the direction is "in". When the direction
    * is "both", the src and dst labels SHOULD be the same.
    */
-  NbrListArray GetOtherVertices(const label_id_t& src_label_id,
+  [[nodiscard]] NbrListArray GetOtherVertices(const label_id_t& src_label_id,
                                 const label_id_t& dst_label_id,
                                 const label_id_t& edge_label_id,
                                 const std::vector<vertex_id_t>& vids,
                                 const gs::Direction& direction,
                                 size_t limit = INT_MAX) const {
-    throw std::runtime_error("Not implemented");
+    std::string outkey = std::to_string(edge_label_id) + storage_.kLabelConnector +
+                      std::to_string(src_label_id) + storage_.kLabelConnector +
+                         std::to_string(dst_label_id);
+    std::string inkey = std::to_string(edge_label_id) + storage_.kLabelConnector +
+                         std::to_string(dst_label_id) + storage_.kLabelConnector +
+                         std::to_string(src_label_id);
+
+    std::vector<ActualStorage::edge_id_t> relatedIds = std::vector<ActualStorage::edge_id_t>();
+    if (direction == gs::Direction::Out || direction == gs::Direction::Both) {
+      if (storage_.edgeTripleToIds.count(outkey)) {
+        auto vec = storage_.edgeTripleToIds.at(outkey);
+        relatedIds.insert(relatedIds.end(), vec.begin(), vec.end());
+      }
+    }
+    if (direction == gs::Direction::In || direction == gs::Direction::Both) {
+      if (storage_.edgeTripleToIds.count(outkey)) {
+        auto vec = storage_.edgeTripleToIds.at(outkey);
+        relatedIds.insert(relatedIds.end(), vec.begin(), vec.end());
+      }
+    }
+
+    for (const auto& id : relatedIds) {
+      std::cout << id << ", ";
+    }
+     std::cout<<std::endl;
+
+    NbrListArray ret;
+    ret.resize(vids.size());
+    for (size_t i = 0; i < vids.size(); ++i) {
+      auto v = vids[i];
+      auto& vec = ret.get_vector(i);
+      for (auto eid : relatedIds) {
+        ActualStorage::vertex_id_t sid = storage_.vertexToId.at(storage_.srcIDs[eid]);
+        ActualStorage::vertex_id_t did = storage_.vertexToId.at(storage_.destIDs[eid]);
+        if (v == sid) {
+          vec.emplace_back(did);
+        } else if (v == did) {
+          vec.emplace_back(sid);
+        }
+      }
+    }
+    return ret;
   }
 
   //////////////////////////////Subgraph-related Interface////////////
@@ -580,20 +652,149 @@ class DescribeGraph {
 
 
 
+class LookupGraph {
+ public:
+  using vertex_id_t = TestGraph::vertex_id_t;
+  using label_id_t = TestGraph::label_id_t;
+
+  LookupGraph() = default;
+  // Query function for query class
+  results::CollectiveResults Query(TestGraph& graph) const {
+    // .topo | graph-match
+    // (trace@service_name@f79708f0ec20ad70fae952cffe0c5073)<-[contains]-(trace@service)-[contains]->(trace@service_host)-[runs_on]->(k8s@pod)
+
+
+    // (trace@service_name@order@order-topic)<-[contains]-(trace@service)-[contains]->(trace@service_host)-[runs_on]->(k8s@pod)
+
+    // Test query topo
+    // service_name -> service -> service_host -> pod -> deployment
+    // 1[Inversed] : contains,trace@service,trace@service_name,order,order@order-topic publish
+    // 2 : contains,trace@service,trace@service_host,order,order@order-68cbb566bf-r9nrs
+    // 3 : runs_on,trace@service_host,k8s@pod,order@order-68cbb566bf-r9nrs,c5e2100b-dc10-4a32-9b05-213bc621ed31
+
+    // 4[Inversed] : contains,k8s@deployment,k8s@pod,d76fb64c-e59f-4c41-8ac1-ceda7e88c0b8,c5e2100b-dc10-4a32-9b05-213bc621ed31
+
+
+    vertex_id_t vid;
+    auto vlid = graph.GetVertexLabelId("trace@service_name");
+    std::string oid = "order@order-topic publish";
+    bool find = graph.ScanVerticesWithOid(vlid, gs::Any::From(oid), vid);
+    if (!find) {
+      throw std::runtime_error("start vertex not found");
+    }
+    std::cout << "start vertex: " << vid << std::endl;
+
+
+    label_id_t srcLabelId = graph.GetVertexLabelId("trace@service");
+    label_id_t dstLabelId = graph.GetVertexLabelId("trace@service_name");
+    label_id_t edgeLabelId = graph.GetEdgeLabelId("contains");
+    std::vector<vertex_id_t> vids = {vid};
+    auto nbrListArray = graph.GetOtherVertices(srcLabelId, dstLabelId, edgeLabelId, vids, gs::Direction::In);
+
+    NbrList nbrList = nbrListArray.get(0);
+    std::cout<< vids[0] << "'s nbrList.size():" << nbrList.size() << std::endl;
+
+
+    std::cout << "secondLayerVids: ";
+    std::vector<vertex_id_t> secondLayerVids = std::vector<vertex_id_t>();
+    for (auto it = nbrList.begin(); it != nbrList.end(); it++) {
+      vertex_id_t nbr = *it;
+      std::cout << nbr << ", ";
+      secondLayerVids.emplace_back(nbr);
+    }
+    std::cout << std::endl;
+
+    srcLabelId = graph.GetVertexLabelId("trace@service");
+    dstLabelId = graph.GetVertexLabelId("trace@service_host");
+    edgeLabelId = graph.GetEdgeLabelId("contains");
+    nbrListArray = graph.GetOtherVertices(srcLabelId, dstLabelId, edgeLabelId, secondLayerVids, gs::Direction::Out);
+
+
+    std::vector<vertex_id_t> thirdLayerVids = std::vector<vertex_id_t>();
+    for (long unsigned int i = 0; i < secondLayerVids.size(); i++ ) {
+      nbrList = nbrListArray.get(i);
+      std::cout<< secondLayerVids[i] << "'s nbrList.size():" << nbrList.size() << std::endl;
+      for (auto it = nbrList.begin(); it != nbrList.end(); it++) {
+        vertex_id_t nbr = *it;
+        thirdLayerVids.emplace_back(nbr);
+      }
+    }
+
+    std::cout << "thirdLayerVids: ";
+    for (unsigned long & thirdLayerVid : thirdLayerVids) {
+      std::cout << thirdLayerVid << ", ";
+    }
+    std::cout << std::endl;
+
+
+
+    srcLabelId = graph.GetVertexLabelId("trace@service_host");
+    dstLabelId = graph.GetVertexLabelId("k8s@pod");
+    edgeLabelId = graph.GetEdgeLabelId("runs_on");
+    nbrListArray = graph.GetOtherVertices(srcLabelId, dstLabelId, edgeLabelId, thirdLayerVids, gs::Direction::Out);
+
+
+    std::vector<vertex_id_t> fourthLayerVids = std::vector<vertex_id_t>();
+    for (long unsigned int i = 0; i < thirdLayerVids.size(); i++ ) {
+      nbrList = nbrListArray.get(i);
+      std::cout<< thirdLayerVids[i] << "'s nbrList.size():" << nbrList.size() << std::endl;
+      for (auto it = nbrList.begin(); it != nbrList.end(); it++) {
+        vertex_id_t nbr = *it;
+        fourthLayerVids.emplace_back(nbr);
+      }
+    }
+
+    std::cout << "fourthLayerVids: ";
+    for (unsigned long & fourthLayerVid : fourthLayerVids) {
+      std::cout << fourthLayerVid << ", ";
+    }
+    std::cout << std::endl;
+
+
+    results::CollectiveResults results;
+    auto record = results.add_results()->mutable_record();
+    {
+      auto col = record->add_columns();
+      col->mutable_name_or_id()->set_name("vertex_id");
+      for (vertex_id_t & fourthLayerVid : fourthLayerVids) {
+        col->mutable_entry()->mutable_element()->mutable_object()->set_i64(fourthLayerVid);
+      }
+    }
+    return results;
+  }
+};
+
+
+
 int main(int argc, char** argv) {
   //
 
+  std::cout << "================= Load Data ==================" << std::endl;
   ActualStorage storage;
   storage.LoadData();
   // 使用std::chrono::seconds构造一个持续时间对象
   std::this_thread::sleep_for(std::chrono::seconds(1));
 
+  std::cout << "================= Describe Graph ==================" << std::endl;
   TestGraph graph(storage);
   DescribeGraph describeGraph;
   describeGraph.Query(graph);
 //  ReadExample app;
 //  auto results = app.Query(graph);
+
+  std::cout << "================= Lookup Graph ==================" << std::endl;
+  LookupGraph lookup;
+  lookup.Query(graph);
+
   return 0;
+
+  /*
+   * 问题：
+   * 1. 匿名Pattern无法表示 ()-[]-()
+   * 2. 复杂属性、多层嵌套属性未尝试
+   * 3. ActualStorage 的实现方式优化
+   * 4. 多层发散问题
+   */
 }
 
 
@@ -610,6 +811,18 @@ void ActualStorage::Init() {
       }
     }
   }
+//  for(const auto& it : vertexToId) {
+//    std::cout<< it.first << " | " << it.second << std::endl;
+//  }
+//  std::cout<<vertexToId["bd3d7709-0a12-4626-a00c-74049fd04458"] << std::endl;
+//  std::cout<<IdToVertex.at(0) << " | " << IdToVertex.at(100)<< std::endl;
+//  std::cout<< vertexToId["order@order-topic publish"] << std::endl;
+//  std::cout<< vertexToId.at("order@order-topic") << std::endl;
+//  std::string s = "order@order-topic";
+//  gs::Any any = gs::Any::From(s);
+//  std::cout<< vertexToId.at(any.AsString()) << std::endl;
+
+  std::cout<< "381: " << IdToVertex[381] << "   191: " << IdToVertex[191] << std::endl;
 
 
   int nextVertexLabelId = 0;
@@ -649,13 +862,11 @@ void ActualStorage::Init() {
     label_id_t destLabelId = vertexLabelToId.find(destDomainAndTypes[i])->second;
     std::string edgeTriple = std::to_string(relationTypeId) + kLabelConnector +
                              std::to_string(srcLabelId) + kLabelConnector + std::to_string(destLabelId);
-    if (edgeTripleToNum.count(edgeTriple)) {
-      edgeTripleToNum[edgeTriple]++;
-    } else {
-      edgeTripleToNum[edgeTriple] = 1;
+    if (!edgeTripleToIds.count(edgeTriple)) {
+      edgeTripleToIds[edgeTriple] = std::vector<edge_id_t>();
     }
+    edgeTripleToIds[edgeTriple].emplace_back(i);
 
-    edges.insert(edgeTriple);
     std::string srcId = srcIDs[i];
     std::string destId = destIDs[i];
 
