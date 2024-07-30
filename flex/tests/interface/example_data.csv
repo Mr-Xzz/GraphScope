@@ -1,0 +1,507 @@
+relationType,srcDomainAndType,destDomainAndType,srcID,destID
+contains,k8s@deployment,k8s@pod,bd3d7709-0a12-4626-a00c-74049fd04458,fc961373-54d1-4074-af69-d23ebaaa9031
+contains,k8s@deployment,k8s@pod,0ea49428-532c-4d51-9b77-e854a6ab69ee,9b7b2e98-e1a4-4d4b-878f-a6e5b707ee55
+contains,k8s@deployment,k8s@pod,2f69e01f-ffa8-4284-b5a2-854ce6b5985c,19c17e34-27d5-4aa7-a09b-66a9fa93f5c3
+contains,k8s@deployment,k8s@pod,c18a63a0-c790-4d40-9377-32e0eb89c3a6,c85b026e-9550-47fc-8711-2ca1846cc787
+contains,k8s@deployment,k8s@pod,08ab8059-49ff-4725-8d6c-4ccd8061863d,4b827e9b-ae3c-40cb-b6ed-196d9317a226
+contains,k8s@deployment,k8s@pod,55c1d3a1-0ed2-473c-a1e0-7d5effe0503c,08f8d8a5-727a-4b6d-bd2c-e2348c11831f
+contains,k8s@deployment,k8s@pod,53fdaee7-cec3-4e3f-9387-a6f116b0f8b1,e1780404-7016-435e-a6bf-ee359ed8ad77
+contains,k8s@deployment,k8s@pod,ad2d5952-d7e4-4d3a-bf93-dd418e2b0e0f,b5c36418-85b3-4d80-9d89-0e7a0110eb0c
+contains,k8s@deployment,k8s@pod,ffc5f674-e880-4ca5-884f-f836fec55dde,c4de3dc9-ed9d-4bb0-bd20-b577b1d8af74
+contains,k8s@deployment,k8s@pod,ad2d5952-d7e4-4d3a-bf93-dd418e2b0e0f,b4ce03ce-155c-44b3-ba80-c5ea3d19175b
+contains,k8s@deployment,k8s@pod,0fc384fd-599f-467a-808a-b92c27975d50,71cdefad-558d-4f78-a1e2-6ee691296dd1
+contains,k8s@deployment,k8s@pod,08ab8059-49ff-4725-8d6c-4ccd8061863d,d5bffab4-b86f-40af-bd97-890802661942
+contains,k8s@deployment,k8s@pod,53fdaee7-cec3-4e3f-9387-a6f116b0f8b1,f1fad3ca-ac19-476c-b99c-ba0f9ac094f3
+contains,k8s@deployment,k8s@pod,1b0d8bba-504d-446a-aa81-1d725e865a05,2d287574-c393-474f-ba18-090db13061e0
+contains,k8s@deployment,k8s@pod,1bea3c6f-fd98-466a-afdc-3ed397f93eb3,709bee27-e988-4c9d-8386-7c4665320789
+contains,k8s@deployment,k8s@pod,ad2d5952-d7e4-4d3a-bf93-dd418e2b0e0f,df5d2a3e-5a2c-42c8-ae29-defcd573a759
+contains,k8s@deployment,k8s@pod,2f69e01f-ffa8-4284-b5a2-854ce6b5985c,39fea1f1-9acd-4dd2-8e57-350180c286b3
+contains,k8s@deployment,k8s@pod,1f2dff52-2e8e-47af-b980-bc56407ad8c8,45b8ff0f-6a38-4812-83e7-02d74eff7197
+contains,k8s@deployment,k8s@pod,2edd5272-8a98-41b7-a094-049c39be56d7,a0b224d6-4a53-4f30-b91a-db80e95cab31
+contains,k8s@deployment,k8s@pod,53fdaee7-cec3-4e3f-9387-a6f116b0f8b1,3ee848b5-df0a-4d48-858a-babf5605e2e4
+contains,k8s@deployment,k8s@pod,78907f3f-c9c5-4594-adfd-ff0285c7e864,73b540d2-fe3a-4c71-a0d9-8319a4e462bb
+contains,k8s@deployment,k8s@pod,d76fb64c-e59f-4c41-8ac1-ceda7e88c0b8,c5e2100b-dc10-4a32-9b05-213bc621ed31
+contains,k8s@deployment,k8s@pod,0babf39c-5f2b-4186-9185-ebbc1932dd79,91bf9299-54ab-4e18-b2b4-d6ed0eca820d
+contains,k8s@deployment,k8s@pod,faf7ba18-af5d-4e7a-a711-1af8ce99ddbb,a3c46e7b-0df6-47ca-b965-583c88312759
+contains,k8s@deployment,k8s@pod,2e0e6520-2f3a-4949-8a9f-8cb348be1b1e,755f6e20-d2be-44b7-be0b-5a39cd7200d2
+contains,k8s@deployment,k8s@pod,ff7ce6ef-8b0d-446a-bd34-16c1a271ef69,af96d1bc-5382-4faa-a020-5a772ee4e7fa
+contains,k8s@deployment,k8s@pod,a175b18c-370f-4ea2-99f5-836c685e85c4,31afa269-4f28-45c4-a745-cdea6af05ca7
+contains,k8s@deployment,k8s@pod,2f69e01f-ffa8-4284-b5a2-854ce6b5985c,d2f30d0b-715e-4d7b-8612-aaeea3088f93
+contains,k8s@deployment,k8s@pod,58085b05-5718-4b15-b43d-a5c728a7f3ca,28ebf4da-9b18-48f8-9db6-82558c5b335a
+contains,k8s@deployment,k8s@pod,2f69e01f-ffa8-4284-b5a2-854ce6b5985c,5fab7734-cea6-46a6-8d53-83bd117eced3
+contains,k8s@deployment,k8s@pod,aff19294-d347-432c-9994-4e9bc989a1df,161a4479-230e-4189-b290-63d157ab97ee
+contains,k8s@deployment,k8s@pod,e31a6a57-44d2-476b-9440-65278f2295f2,d9544e88-47dd-4ef1-915f-b3cc90166328
+contains,k8s@deployment,k8s@pod,2edd5272-8a98-41b7-a094-049c39be56d7,7bc290cf-2835-4138-b5cc-c3a649f953c9
+contains,k8s@deployment,k8s@pod,3f965fc0-6417-43b0-80c9-eb1d8c988687,e61423cf-6bed-477d-a96e-e4b9ebad8de2
+contains,k8s@deployment,k8s@pod,269d15b5-0d80-4318-81fd-03c1a97e92a5,422799d9-84bd-45ee-9076-cb1a4626f35d
+contains,k8s@deployment,k8s@pod,ad2d5952-d7e4-4d3a-bf93-dd418e2b0e0f,741879a9-b6dc-4b84-8760-169de0733781
+contains,k8s@deployment,k8s@pod,881509af-d26c-4a35-922e-e187baf28930,1d02a3c7-960c-45a9-a231-645867b54338
+contains,k8s@deployment,k8s@pod,5e347590-a683-4786-9b0d-8fa05eca3a1a,ccebc92f-9d31-4303-b1d5-b78294f13dc6
+contains,k8s@deployment,k8s@pod,4a6e85a6-f991-46a1-9b00-7835e572f8ad,1ba02415-d91b-4870-bd96-b6670ec7dfe8
+contains,k8s@deployment,k8s@pod,ad2d5952-d7e4-4d3a-bf93-dd418e2b0e0f,9ddd6e31-19b6-4827-9a71-c3400658841b
+contains,k8s@deployment,k8s@pod,9941a042-7af4-40c6-b827-f1b4ca1d488d,13703452-825a-47f4-990d-7b59fb15fc44
+contains,k8s@deployment,k8s@pod,6254391b-c6de-41ab-93d0-f67f4dc1f67c,8aa36e10-512c-4470-a8b7-6150b8a1c9cd
+contains,k8s@deployment,k8s@pod,bd3d7709-0a12-4626-a00c-74049fd04458,bf1977b9-253a-4c56-b8a0-b0b4e5feef7f
+contains,k8s@deployment,k8s@pod,2f69e01f-ffa8-4284-b5a2-854ce6b5985c,7be4ff1b-4bd6-41f0-88c9-511810b3299a
+contains,k8s@deployment,k8s@pod,2edd5272-8a98-41b7-a094-049c39be56d7,9f2a3e54-6929-488f-8a1c-911f69b6ed93
+contains,k8s@deployment,k8s@pod,2edd5272-8a98-41b7-a094-049c39be56d7,f504494e-c039-49cd-a7e9-68ed9fdc6dc2
+contains,k8s@deployment,k8s@pod,2edd5272-8a98-41b7-a094-049c39be56d7,e49503ae-f382-4de7-bc77-725606a6e58e
+contains,k8s@deployment,k8s@pod,2f69e01f-ffa8-4284-b5a2-854ce6b5985c,1435d330-b08c-465c-9deb-a5564a43355c
+contains,k8s@deployment,k8s@pod,53fdaee7-cec3-4e3f-9387-a6f116b0f8b1,c36e04ad-fb99-46ea-838d-7fcc21f9f651
+contains,k8s@deployment,k8s@pod,e3c529e2-0dcd-48e7-ade8-9902f6617017,539c9a4b-28d5-49fc-b1bd-97eddec28d3c
+contains,k8s@deployment,k8s@pod,d76fb64c-e59f-4c41-8ac1-ceda7e88c0b8,2baf8252-d438-497a-8520-a1deb0ce09d9
+contains,k8s@deployment,k8s@pod,1f6aa865-3c29-4d18-8d20-82c53a5a9eb7,c6afd371-95a6-4e45-b020-d3330f02bdb3
+contains,k8s@deployment,k8s@pod,77e54bc8-8bb5-4af4-ad19-0b2f63561fea,9cf41289-cc74-43ea-acfa-082576e7f9ea
+contains,k8s@deployment,k8s@pod,5e347590-a683-4786-9b0d-8fa05eca3a1a,475acab0-4a91-43b7-8ba9-e806bf153844
+contains,k8s@deployment,k8s@pod,53fdaee7-cec3-4e3f-9387-a6f116b0f8b1,a083d250-82cc-461a-9ea0-f66ec4f6a868
+contains,k8s@deployment,k8s@pod,0890a1ce-c6a0-41fc-b714-b768852aeba8,3993f002-dc1d-4ee5-b85f-1b610662ccc2
+contains,k8s@deployment,k8s@pod,943c449b-c8bf-4cda-9d24-e891bc9c9016,01b1f46d-d7a8-42ac-98e9-69de8adafa37
+contains,k8s@deployment,k8s@pod,80bb2111-0351-4d8a-b029-d307b5b1135f,4731dbe0-2be0-48af-a25a-78b57bc2458d
+contains,k8s@deployment,k8s@pod,d76fb64c-e59f-4c41-8ac1-ceda7e88c0b8,370f6d84-7fde-471c-8bee-864e184808a2
+contains,k8s@deployment,k8s@pod,ebd31091-b265-41dd-9c64-ac9f7284509c,d2c21337-4f0b-443b-85ff-112427ae608c
+contains,k8s@deployment,k8s@pod,53fdaee7-cec3-4e3f-9387-a6f116b0f8b1,60b26b9e-359e-4e4c-9f5b-97b87093c0ac
+contains,k8s@deployment,k8s@pod,5e347590-a683-4786-9b0d-8fa05eca3a1a,99944e5f-1820-4394-937c-69592c821908
+contains,k8s@deployment,k8s@pod,3f965fc0-6417-43b0-80c9-eb1d8c988687,748a4208-f6c6-431c-8231-c7d6f6f59be2
+contains,k8s@deployment,k8s@pod,ad2d5952-d7e4-4d3a-bf93-dd418e2b0e0f,cf88c396-59c4-4a6f-bd69-cf6be913f98d
+contains,k8s@deployment,k8s@pod,3f965fc0-6417-43b0-80c9-eb1d8c988687,9ef2f59f-8068-4803-b1a5-3fc01496d6ed
+contains,k8s@deployment,k8s@pod,ba4535e1-8977-4212-9e08-297e548058e0,26588b91-fd15-4f53-8619-751e1ad8238a
+contains,k8s@deployment,k8s@pod,cee04f81-c0b3-4be5-8cbe-52ddaa38607f,9354ca46-f603-4309-b4bb-4418a031d581
+contains,k8s@deployment,k8s@pod,a8002f39-6c24-49d6-bdae-c1c77329ae26,4526237e-b467-4be6-a6f4-dac1e8d64c0a
+contains,k8s@deployment,k8s@pod,3365c877-9dae-4623-9614-cbcb4a7df943,9b4dec8a-eb45-4bc2-828c-a7c68d340bf2
+contains,k8s@deployment,k8s@pod,2f69e01f-ffa8-4284-b5a2-854ce6b5985c,573ce3c3-b86a-4b3a-971c-3d88ba720c1f
+contains,k8s@deployment,k8s@pod,2f69e01f-ffa8-4284-b5a2-854ce6b5985c,a0883b39-ee11-4711-a850-4a0f28772398
+contains,k8s@deployment,k8s@pod,1b0d8bba-504d-446a-aa81-1d725e865a05,90ffe5e9-4a7b-48db-b92d-880e4840f432
+contains,k8s@deployment,k8s@pod,0890a1ce-c6a0-41fc-b714-b768852aeba8,3e39f1bc-60f7-42de-9c67-5452f2a1c702
+contains,k8s@deployment,k8s@pod,5f07cab9-17a6-4c7f-a9bf-8d5f97e77478,b96bd464-4811-485e-ba09-bcd3db9a0e0e
+contains,k8s@deployment,k8s@pod,1b975831-1e14-4623-986e-12ae491de4b3,d6c1e2ec-8152-4229-bb48-8b9bc7bd0b32
+contains,k8s@deployment,k8s@pod,2edd5272-8a98-41b7-a094-049c39be56d7,db57afa5-596b-4094-b978-d8701a171507
+contains,k8s@deployment,k8s@pod,3f965fc0-6417-43b0-80c9-eb1d8c988687,418299dd-e5ed-43e1-b03c-f4d1ce3b657f
+contains,k8s@deployment,k8s@pod,489a159d-b872-49e7-8dd9-ca9a611271ce,f4af2ea7-0538-4cba-8af6-20a96eab4b58
+contains,k8s@deployment,k8s@pod,3faaa726-916d-49b4-bbda-a65eaff4425e,25e9a3e9-dabd-439d-900b-dc4e16ff5c8f
+contains,k8s@deployment,k8s@pod,d76fb64c-e59f-4c41-8ac1-ceda7e88c0b8,b581c845-2df8-4776-87c4-b73fdb486d08
+contains,k8s@deployment,k8s@pod,2e0f79be-2919-4d4a-91c7-4c1ffcf66306,a23a9e0a-42cd-40cc-af83-f076f3c61eeb
+contains,k8s@deployment,k8s@pod,d76fb64c-e59f-4c41-8ac1-ceda7e88c0b8,b7a9ea57-271f-4546-9a1b-c833e91b0914
+contains,k8s@deployment,k8s@pod,2edd5272-8a98-41b7-a094-049c39be56d7,f18d63b7-af77-4ccb-bd5a-a3d072b4cc7f
+contains,k8s@deployment,k8s@pod,8270624e-571f-4bc4-b9ca-1f997a899aae,e315304a-20cc-4ee9-b32a-320a8adf3a27
+contains,k8s@deployment,k8s@pod,5de7aca0-9915-4198-87f6-7637d1d87035,52d11499-2b57-46f9-b008-eec16b5e54fe
+contains,k8s@deployment,k8s@pod,bd3d7709-0a12-4626-a00c-74049fd04458,22be89bc-3db3-4157-bb9f-7527c05e7b55
+contains,k8s@deployment,k8s@pod,3f965fc0-6417-43b0-80c9-eb1d8c988687,6ad4c50c-2f83-41e9-8508-839d2b3baabd
+contains,k8s@deployment,k8s@pod,2f69e01f-ffa8-4284-b5a2-854ce6b5985c,4f73c98e-5f2b-4e09-b090-ee112d7b6d13
+contains,k8s@deployment,k8s@pod,8b4ba10e-eef5-486a-a65b-50b5ec22e7f1,6352104b-1204-4985-8cfe-74c4b18ab8e4
+contains,k8s@deployment,k8s@pod,5e347590-a683-4786-9b0d-8fa05eca3a1a,197e4674-8ee2-4722-94cf-671a886db8b2
+contains,k8s@deployment,k8s@pod,3f965fc0-6417-43b0-80c9-eb1d8c988687,6668ed10-b172-4839-9769-8eea00d1831e
+contains,k8s@deployment,k8s@pod,4a6e85a6-f991-46a1-9b00-7835e572f8ad,b0362533-b96b-4389-9e7a-c0ba03d0494d
+contains,k8s@deployment,k8s@pod,2f69e01f-ffa8-4284-b5a2-854ce6b5985c,37800016-736a-4047-91df-f28ba41cd4bb
+contains,k8s@deployment,k8s@pod,da3c0544-9438-457d-931c-0ee0e03fe9c2,1e87bad5-87ac-451f-b31e-76222b01b836
+contains,k8s@deployment,k8s@pod,53fdaee7-cec3-4e3f-9387-a6f116b0f8b1,a8967968-ab2b-48fa-9661-c1cdcc0eb76e
+contains,k8s@deployment,k8s@pod,a8002f39-6c24-49d6-bdae-c1c77329ae26,1ab3996d-7053-47cc-a53f-37803ac058df
+contains,k8s@deployment,k8s@pod,61744e93-b5a0-4b83-9a9e-f2938e83e580,dc45cc43-85f5-4106-a817-43f62ecca6d0
+contains,k8s@deployment,k8s@pod,a8c85dc0-cab5-4d2f-adfe-61af37be5257,9d6d1f0d-088d-4ece-83ff-af7cf60dac8a
+contains,k8s@deployment,k8s@pod,53fdaee7-cec3-4e3f-9387-a6f116b0f8b1,57def326-9e1b-4ee9-8449-4c0f8314d62a
+contains,k8s@deployment,k8s@pod,bb4d9a60-258b-4c6d-85d6-bd7192c525f7,9c0b7810-8e36-45c7-b25f-76d3cacdcaa0
+contains,k8s@deployment,k8s@pod,d31f3a0e-b76f-4c18-a1c3-74c695f77197,a985231d-dd45-4e64-994b-7df4e0eea24e
+contains,k8s@deployment,k8s@pod,da3c0544-9438-457d-931c-0ee0e03fe9c2,bffe9a81-90ae-4010-af53-88d90fa8863a
+contains,k8s@deployment,k8s@pod,ba4535e1-8977-4212-9e08-297e548058e0,d6ed592a-b8eb-4e41-8d8f-b55129e52fe6
+contains,k8s@deployment,k8s@pod,593e8e2f-fb72-4b1b-a75e-b5ce1d3da5b5,cbe1d953-6eb8-42d9-88e2-813bdb6b1b1f
+contains,k8s@deployment,k8s@pod,3f965fc0-6417-43b0-80c9-eb1d8c988687,4898b9c3-d25f-4b58-8f18-734de16dfe01
+contains,k8s@deployment,k8s@pod,5e347590-a683-4786-9b0d-8fa05eca3a1a,f62195e7-99b5-40e3-a21b-cecb75e823d1
+contains,k8s@deployment,k8s@pod,2f69e01f-ffa8-4284-b5a2-854ce6b5985c,1e550b5e-8e2e-4d9f-ab0b-47fe301b703e
+contains,k8s@deployment,k8s@pod,ad2d5952-d7e4-4d3a-bf93-dd418e2b0e0f,599661a6-a0b0-47f2-82cf-4a54de5a1e9c
+contains,k8s@deployment,k8s@pod,0f941be5-f6bb-4342-a33d-ba89a2720d61,d0445c5f-c041-4081-be23-e4f46a545f3c
+contains,k8s@deployment,k8s@pod,7c80c626-0e8f-48c7-808a-913ceba8b87a,b6ceaf85-4108-49ad-be85-1ab6ee627b8f
+contains,k8s@deployment,k8s@pod,08ab8059-49ff-4725-8d6c-4ccd8061863d,6caeeef4-dc62-43c1-857c-69fbfa6845f3
+contains,k8s@deployment,k8s@pod,0a800e0d-d4d6-4b3a-a06d-6d5bddefbef0,3654b30c-900e-48a9-a118-e13992a951e2
+contains,k8s@deployment,k8s@pod,787294e8-51ef-4865-847d-16265cd0799d,1aaf82f0-f55f-46b2-a4f6-134346f04f74
+contains,k8s@deployment,k8s@pod,1cd0ef71-be9c-4c56-ae3d-bdbb859ce7d6,c89eb7d1-910d-4ecc-82e4-764086c70780
+contains,k8s@deployment,k8s@pod,3f965fc0-6417-43b0-80c9-eb1d8c988687,bdced7ff-159a-4551-89fb-8094eb6e9a3d
+contains,k8s@deployment,k8s@pod,2f69e01f-ffa8-4284-b5a2-854ce6b5985c,ad209765-9113-414e-92cb-da751e832f63
+contains,k8s@deployment,k8s@pod,757d3692-31e1-448b-a931-6f9ef3e88ce0,bcac9717-a25a-4747-b007-92eff98fe4f6
+contains,k8s@deployment,k8s@pod,2edd5272-8a98-41b7-a094-049c39be56d7,85b5c3e4-2bc1-40ac-ae1f-d5bf078ca417
+contains,k8s@deployment,k8s@pod,5e347590-a683-4786-9b0d-8fa05eca3a1a,d4496520-eda5-4222-9170-438f99232114
+contains,k8s@deployment,k8s@pod,2edd5272-8a98-41b7-a094-049c39be56d7,2af342c2-cca1-412e-83dd-8aa5b8f110e2
+contains,k8s@deployment,k8s@pod,1ef3abd2-3872-4bbf-a708-fce6677df4a6,2413c2a7-5b8a-43bd-a3b6-e4ff2cbbfe31
+contains,k8s@deployment,k8s@pod,91d6cd9d-a3f0-4280-a10c-277f1dfcbb2b,f74cb3d4-45de-4f62-9d92-92a89bd0bdda
+contains,k8s@deployment,k8s@pod,d8a23985-4040-4237-9269-a29d40545572,14161a2b-7620-433d-8cf4-8264cd825301
+contains,k8s@deployment,k8s@pod,08ab8059-49ff-4725-8d6c-4ccd8061863d,70c887e1-d7c2-45bb-a8af-b2abbee669c2
+contains,k8s@deployment,k8s@pod,5e347590-a683-4786-9b0d-8fa05eca3a1a,2847bc61-7279-4056-932d-08124ee48c6d
+contains,k8s@deployment,k8s@pod,5e347590-a683-4786-9b0d-8fa05eca3a1a,84234586-602f-4cb4-9614-0691dd8cabfe
+contains,k8s@deployment,k8s@pod,f1ed04af-5f02-48d9-831f-3ef9ad32765d,2a274b53-e5cd-48cc-b7e3-e4b889d39c63
+contains,k8s@deployment,k8s@pod,88f8291d-2ee9-4ce3-ab97-9abd07427930,4f85e44f-ec37-4047-95d8-f8b41c2f2477
+contains,k8s@deployment,k8s@pod,5f07cab9-17a6-4c7f-a9bf-8d5f97e77478,d4eb0e01-d2a5-4d31-9a50-158616ff6e61
+contains,k8s@deployment,k8s@pod,cf027738-ec8b-4a23-a380-62aec1dae309,cc99f561-0137-454e-b56e-05571700bc1c
+contains,k8s@deployment,k8s@pod,d76fb64c-e59f-4c41-8ac1-ceda7e88c0b8,0f0065b1-d725-485e-97ba-e97d1cfc388c
+contains,k8s@deployment,k8s@pod,53fdaee7-cec3-4e3f-9387-a6f116b0f8b1,316e0eb0-ce15-4339-86a0-5ad70d39892a
+contains,k8s@deployment,k8s@pod,432c9ac5-95f6-4a1c-8595-292728ec51dd,45244919-baab-432b-ae2d-8f3815870f29
+contains,k8s@deployment,k8s@pod,d76fb64c-e59f-4c41-8ac1-ceda7e88c0b8,9334b838-6a42-4147-bcaa-7e7d721c66cd
+contains,k8s@deployment,k8s@pod,5a784144-6417-4b3c-b504-c38333673638,14634c4c-3b5c-45bd-8cfe-354c3149b0a8
+contains,k8s@deployment,k8s@pod,525f7f35-7776-4268-910e-80ab32347682,a26d5fb2-fda9-48e4-a3ac-f3447af7cd65
+contains,k8s@deployment,k8s@pod,dad5e7c0-c558-44d0-add5-2ceeb300342a,cf407566-c0f1-4304-afdc-104f7bdc3d18
+contains,k8s@deployment,k8s@pod,ad2d5952-d7e4-4d3a-bf93-dd418e2b0e0f,cee4c4a3-006e-45d9-87a8-86cdcff270f6
+contains,k8s@deployment,k8s@pod,53fdaee7-cec3-4e3f-9387-a6f116b0f8b1,e2216640-a212-49d7-bb8d-c2137678976c
+contains,k8s@deployment,k8s@pod,5e347590-a683-4786-9b0d-8fa05eca3a1a,6e639ac6-1de8-4b9a-b57a-9f2385b0f91a
+contains,k8s@deployment,k8s@pod,08ab8059-49ff-4725-8d6c-4ccd8061863d,faca8ee3-03e1-439f-ad59-9a7d24331ea2
+contains,k8s@deployment,k8s@pod,bc11ee85-cdb1-4242-85ab-8c14c6c91fa2,b85196bc-ff68-4a9b-b8fd-248b1677d7a4
+contains,k8s@deployment,k8s@pod,87565c74-9051-4502-831e-b14d3abbc99b,18b77697-1e0b-4aa9-8ed1-783049ceee41
+contains,k8s@deployment,k8s@pod,bb4d9a60-258b-4c6d-85d6-bd7192c525f7,420319da-5e8a-4542-a248-9a06c044c63e
+contains,k8s@deployment,k8s@pod,523e64dc-e0f1-4aa1-9408-262ca4b35dfe,fc78a465-62e6-40f6-9887-bea5af51efc3
+contains,k8s@deployment,k8s@pod,da70277e-77a6-40dd-8fda-03ad8f4bc98e,07671438-771a-4cb5-ac02-dc71e2eb6efc
+contains,k8s@deployment,k8s@pod,910c6484-25bd-4481-8e81-aa90c9e58b7a,059405dc-90ab-4509-b258-8d46bbeadc79
+contains,k8s@deployment,k8s@pod,ad2d5952-d7e4-4d3a-bf93-dd418e2b0e0f,c515aa94-cbc0-4263-a490-5d02e33456b2
+contains,k8s@deployment,k8s@pod,2edd5272-8a98-41b7-a094-049c39be56d7,24079a85-0955-4821-9453-c92973220726
+contains,k8s@deployment,k8s@pod,0f941be5-f6bb-4342-a33d-ba89a2720d61,0000fc6d-6b4d-4f23-bfa7-ee83e7cf246e
+contains,k8s@deployment,k8s@pod,5ffe0f14-577b-41d5-825d-1116ca238449,e3444ab0-bb13-4323-b654-d9cf543a35a1
+contains,k8s@deployment,k8s@pod,d76fb64c-e59f-4c41-8ac1-ceda7e88c0b8,547084b9-02d2-4680-b92e-254bc5f73ffe
+contains,k8s@deployment,k8s@pod,3d78f0a7-bb88-4dbf-94c9-a4d0c1b500c2,3926cf41-9e23-4147-8702-01061819ed22
+contains,k8s@deployment,k8s@pod,2f69e01f-ffa8-4284-b5a2-854ce6b5985c,efcf2cce-4bdd-4cba-a5e6-ffc4ae7bb11b
+contains,k8s@deployment,k8s@pod,2f69e01f-ffa8-4284-b5a2-854ce6b5985c,c0a61bfe-9505-4187-b124-9b5b2ffd8c46
+contains,k8s@deployment,k8s@pod,4e0e1b47-b6b7-4957-a47e-3c5946150ab9,ce8387c3-1c8c-4604-af11-292cc95b3ca0
+contains,k8s@deployment,k8s@pod,d6d36e4f-175d-46c2-a7ea-5c8e1d0477a0,e90eb07b-4a72-4ef3-9cda-460e0b72c303
+contains,k8s@deployment,k8s@pod,daebcc98-a306-480b-88e1-c63fb27d0b96,aa58c658-426f-4385-82a5-40536aff8663
+contains,k8s@deployment,k8s@pod,632f5054-e759-4ff6-8a49-ad58d17c18e4,89c7e9bd-0380-4765-907c-e3428b9e0d2e
+contains,k8s@deployment,k8s@pod,a07ab038-1d9e-40cb-a872-c9ff5ab25fb1,72f85fa4-2a17-4b00-81ac-6174dc19d526
+contains,k8s@deployment,k8s@pod,d76fb64c-e59f-4c41-8ac1-ceda7e88c0b8,c947661f-7526-4d3c-80b5-3a7d3f0c2be8
+contains,k8s@deployment,k8s@pod,85c50710-e732-4d49-b7f5-18937d1cae7f,e45fda7c-7663-4162-9483-71baed6fc8b5
+contains,k8s@deployment,k8s@pod,d76fb64c-e59f-4c41-8ac1-ceda7e88c0b8,9cac27d6-8fee-4a73-bff0-15c647075706
+contains,k8s@deployment,k8s@pod,0f941be5-f6bb-4342-a33d-ba89a2720d61,1c97df9c-6f3b-4d25-a72e-d40d24e866e6
+contains,k8s@deployment,k8s@pod,578e37ea-47c5-48fb-b820-d82e35e57d04,153095c2-4f59-40ab-8ed5-5a6eb2b83b25
+contains,k8s@deployment,k8s@pod,f241593f-4f88-4282-b1a4-c75a74211eb9,8d0453ec-5808-4755-9a3e-017d9ba661c6
+contains,k8s@deployment,k8s@pod,5e347590-a683-4786-9b0d-8fa05eca3a1a,b067c76e-15f8-4a90-816c-7326072fbece
+contains,k8s@deployment,k8s@pod,432c9ac5-95f6-4a1c-8595-292728ec51dd,8e698d34-d967-4709-ac46-a7209a6e2d7e
+contains,k8s@deployment,k8s@pod,ad2d5952-d7e4-4d3a-bf93-dd418e2b0e0f,8e8aed25-f690-4b9d-8229-42f92f961322
+contains,k8s@deployment,k8s@pod,1b0d8bba-504d-446a-aa81-1d725e865a05,dffc0383-8c52-4c7b-9d58-355aa0ffd081
+runs_on,trace@service_host,k8s@pod,integral@integral-6785588f5c-qhq55,cee4c4a3-006e-45d9-87a8-86cdcff270f6
+runs_on,trace@service_host,k8s@pod,paymentservice@iZ2ze46gmkuo2ws8qfavafZ,82edf618-6182-4403-b20a-5cfa268fff2a_192.168.32.84
+runs_on,trace@service_host,k8s@pod,user@user-86f6b744dc-gpbhp,e1780404-7016-435e-a6bf-ee359ed8ad77
+runs_on,trace@service_host,k8s@pod,user@user-86f6b744dc-pb74f,316e0eb0-ce15-4339-86a0-5ad70d39892a
+runs_on,trace@service_host,k8s@pod,anti-cheating@anti-cheating-77b9fd8b6b-9sr8p,70c887e1-d7c2-45bb-a8af-b2abbee669c2
+runs_on,trace@service_host,k8s@pod,frontend@iZ2ze46gmkuo2ws8qfavagZ,1368a3f0-aace-42a6-9b4f-51da169f4996_192.168.32.87
+runs_on,trace@service_host,k8s@pod,user@user-86f6b744dc-pc88t,a083d250-82cc-461a-9ea0-f66ec4f6a868
+runs_on,trace@service_host,k8s@pod,shipping@shipping-77cd6f4d9d-nf5f8,6e639ac6-1de8-4b9a-b57a-9f2385b0f91a
+runs_on,trace@service_host,k8s@pod,payment@payment-554f959c5f-cfwbs,f18d63b7-af77-4ccb-bd5a-a3d072b4cc7f
+runs_on,trace@service_host,k8s@pod,shipping@shipping-77cd6f4d9d-zxgd5,b067c76e-15f8-4a90-816c-7326072fbece
+runs_on,trace@service_host,k8s@pod,frauddetectionservice@opentelemetry-demo-frauddetectionservice-7b5f6cbc75-ss559,e315304a-20cc-4ee9-b32a-320a8adf3a27
+runs_on,trace@service_host,k8s@pod,user@user-86f6b744dc-4brzr,f1fad3ca-ac19-476c-b99c-ba0f9ac094f3
+runs_on,trace@service_host,k8s@pod,adservice@opentelemetry-demo-adservice-54b77945d-8gc2r,9d6d1f0d-088d-4ece-83ff-af7cf60dac8a
+runs_on,trace@service_host,k8s@pod,user@user-86f6b744dc-dzfhs,3ee848b5-df0a-4d48-858a-babf5605e2e4
+runs_on,trace@service_host,k8s@pod,order@order-68cbb566bf-2h2vv,b581c845-2df8-4776-87c4-b73fdb486d08
+runs_on,trace@service_host,k8s@pod,catalogue@catalogue-f96574b65-4pkzp,22be89bc-3db3-4157-bb9f-7527c05e7b55
+runs_on,trace@service_host,k8s@pod,payment@payment-554f959c5f-4z57q,db57afa5-596b-4094-b978-d8701a171507
+runs_on,trace@service_host,k8s@pod,payment@payment-554f959c5f-bhbvp,e49503ae-f382-4de7-bc77-725606a6e58e
+runs_on,trace@service_host,k8s@pod,payment@payment-554f959c5f-rgwd9,9f2a3e54-6929-488f-8a1c-911f69b6ed93
+runs_on,trace@service_host,k8s@pod,user@user-86f6b744dc-kthnw,57def326-9e1b-4ee9-8449-4c0f8314d62a
+runs_on,trace@service_host,k8s@pod,user@user-86f6b744dc-h44sp,c36e04ad-fb99-46ea-838d-7fcc21f9f651
+runs_on,trace@service_host,k8s@pod,shipping@shipping-77cd6f4d9d-h52jz,99944e5f-1820-4394-937c-69592c821908
+runs_on,trace@service_host,k8s@pod,billing@billing-65d96cd596-x4cfb,2d287574-c393-474f-ba18-090db13061e0
+runs_on,trace@service_host,k8s@pod,checkoutservice@opentelemetry-demo-checkoutservice-6848d6bb56-f2gnw,e90eb07b-4a72-4ef3-9cda-460e0b72c303
+runs_on,trace@service_host,k8s@pod,order@order-68cbb566bf-r9nrs,c5e2100b-dc10-4a32-9b05-213bc621ed31
+runs_on,trace@service_host,k8s@pod,cart@cart-6fdd549649-dbnft,ad209765-9113-414e-92cb-da751e832f63
+runs_on,trace@service_host,k8s@pod,user@user-86f6b744dc-qz6v4,60b26b9e-359e-4e4c-9f5b-97b87093c0ac
+runs_on,trace@service_host,k8s@pod,catalogue@catalogue-f96574b65-fmxmf,fc961373-54d1-4074-af69-d23ebaaa9031
+runs_on,trace@service_host,k8s@pod,productcatalogservice@opentelemetry-demo-productcatalogservice-568fb95968-zj5bc,539c9a4b-28d5-49fc-b1bd-97eddec28d3c
+runs_on,trace@service_host,k8s@pod,order@order-68cbb566bf-zd7nq,370f6d84-7fde-471c-8bee-864e184808a2
+runs_on,trace@service_host,k8s@pod,order@order-68cbb566bf-d4tlb,9cac27d6-8fee-4a73-bff0-15c647075706
+runs_on,trace@service_host,k8s@pod,user@user-86f6b744dc-tkn5g,a8967968-ab2b-48fa-9661-c1cdcc0eb76e
+runs_on,trace@service_host,k8s@pod,anti-cheating@anti-cheating-77b9fd8b6b-rlrf6,d5bffab4-b86f-40af-bd97-890802661942
+runs_on,trace@service_host,k8s@pod,billing@billing-65d96cd596-6sw46,dffc0383-8c52-4c7b-9d58-355aa0ffd081
+runs_on,trace@service_host,k8s@pod,queue-master@queue-master-69f5685ccc-lnz98,1c97df9c-6f3b-4d25-a72e-d40d24e866e6
+runs_on,trace@service_host,k8s@pod,cart@cart-6fdd549649-ngbtx,efcf2cce-4bdd-4cba-a5e6-ffc4ae7bb11b
+runs_on,trace@service_host,k8s@pod,order@order-68cbb566bf-sjt6p,547084b9-02d2-4680-b92e-254bc5f73ffe
+runs_on,trace@service_host,k8s@pod,queue-master@queue-master-69f5685ccc-gkfzr,d0445c5f-c041-4081-be23-e4f46a545f3c
+runs_on,trace@service_host,k8s@pod,shipping@shipping-77cd6f4d9d-crzj5,ccebc92f-9d31-4303-b1d5-b78294f13dc6
+runs_on,trace@service_host,k8s@pod,front-end@frontend-6df9c5d8d8-hwv8c,e3444ab0-bb13-4323-b654-d9cf543a35a1
+runs_on,trace@service_host,k8s@pod,integral@integral-6785588f5c-94k44,8e8aed25-f690-4b9d-8229-42f92f961322
+runs_on,trace@service_host,k8s@pod,integral@integral-6785588f5c-dzxc7,df5d2a3e-5a2c-42c8-ae29-defcd573a759
+runs_on,trace@service_host,k8s@pod,quoteservice@opentelemetry-demo-quoteservice-57599d5d8f-npxll,4f85e44f-ec37-4047-95d8-f8b41c2f2477
+runs_on,trace@service_host,k8s@pod,payment@payment-554f959c5f-h8dr4,85b5c3e4-2bc1-40ac-ae1f-d5bf078ca417
+runs_on,trace@service_host,k8s@pod,order@order-68cbb566bf-65chk,c947661f-7526-4d3c-80b5-3a7d3f0c2be8
+runs_on,trace@service_host,k8s@pod,order@order-68cbb566bf-ckgjp,0f0065b1-d725-485e-97ba-e97d1cfc388c
+runs_on,trace@service_host,k8s@pod,shipping@shipping-77cd6f4d9d-8ftmg,2847bc61-7279-4056-932d-08124ee48c6d
+runs_on,trace@service_host,k8s@pod,payment@payment-554f959c5f-p8lzk,2af342c2-cca1-412e-83dd-8aa5b8f110e2
+runs_on,trace@service_host,k8s@pod,integral@integral-6785588f5c-prf2k,c515aa94-cbc0-4263-a490-5d02e33456b2
+runs_on,trace@service_host,k8s@pod,payment@payment-554f959c5f-v8dhl,a0b224d6-4a53-4f30-b91a-db80e95cab31
+runs_on,trace@service_host,k8s@pod,anti-cheating@anti-cheating-77b9fd8b6b-7762v,4b827e9b-ae3c-40cb-b6ed-196d9317a226
+runs_on,trace@service_host,k8s@pod,integral@integral-6785588f5c-98plg,599661a6-a0b0-47f2-82cf-4a54de5a1e9c
+runs_on,trace@service_host,k8s@pod,integral@integral-6785588f5c-bf5x9,9ddd6e31-19b6-4827-9a71-c3400658841b
+runs_on,trace@service_host,k8s@pod,shipping@shipping-77cd6f4d9d-gj585,475acab0-4a91-43b7-8ba9-e806bf153844
+runs_on,trace@service_host,k8s@pod,payment@payment-554f959c5f-8z2r2,7bc290cf-2835-4138-b5cc-c3a649f953c9
+runs_on,trace@service_host,k8s@pod,shipping@shipping-77cd6f4d9d-h4t64,d4496520-eda5-4222-9170-438f99232114
+runs_on,trace@service_host,k8s@pod,payment@payment-554f959c5f-ftn5t,24079a85-0955-4821-9453-c92973220726
+runs_on,trace@service_host,k8s@pod,shipping@shipping-77cd6f4d9d-fr46j,f62195e7-99b5-40e3-a21b-cecb75e823d1
+runs_on,trace@service_host,k8s@pod,payment@payment-554f959c5f-vggfk,f504494e-c039-49cd-a7e9-68ed9fdc6dc2
+runs_on,trace@service_host,k8s@pod,integral@integral-6785588f5c-vpcp5,b5c36418-85b3-4d80-9d89-0e7a0110eb0c
+call,trace@service,trace@service,kafka,frauddetectionservice
+call,trace@service,trace@service,cart,mongodb://mongo:27017
+call,trace@service,trace@service,recommendationservice,featureflagservice
+call,trace@service,trace@service,checkoutservice,currencyservice
+call,trace@service,trace@service,checkoutservice,cartservice
+call,trace@service,trace@service,rocketmq,billing
+call,trace@service,trace@service,frontend,checkoutservice
+call,trace@service,trace@service,recommendationservice,productcatalogservice
+call,trace@service,trace@service,frontend,adservice
+call,trace@service,trace@service,order,anti-cheating
+call,trace@service,trace@service,order,payment
+call,trace@service,trace@service,checkoutservice,emailservice
+call,trace@service,trace@service,order,user
+call,trace@service,trace@service,productcatalogservice,featureflagservice
+call,trace@service,trace@service,integral,mysql://integral-db:3306
+call,trace@service,trace@service,frontend-proxy,frontend
+call,trace@service,trace@service,checkoutservice,kafka
+call,trace@service,trace@service,order,rocketmq
+call,trace@service,trace@service,checkoutservice,paymentservice
+call,trace@service,trace@service,front-end,cart
+call,trace@service,trace@service,anti-cheating,mysql://integral-db:3306
+call,trace@service,trace@service,front-end,order
+call,trace@service,trace@service,anti-cheating,integral
+call,trace@service,trace@service,loadgenerator,frontend-proxy
+call,trace@service,trace@service,adservice,featureflagservice
+call,trace@service,trace@service,order,cart
+call,trace@service,trace@service,checkoutservice,shippingservice
+call,trace@service,trace@service,checkoutservice,productcatalogservice
+call,trace@service,trace@service,frontend,recommendationservice
+call,trace@service,trace@service,order,shipping
+call,trace@service,trace@service,frontend,cartservice
+call,trace@service,trace@service,front-end,user
+call,trace@service,trace@service,shippingservice,quoteservice
+call,trace@service,trace@service,front-end,catalogue
+call,trace@service,trace@service,cartservice,featureflagservice
+call,trace@service,trace@service,frontend,productcatalogservice
+call,trace@service,trace@service,shipping,rabbitmq
+call,trace@service,trace@service,order,mongodb://mongo:27017
+contains,trace@service,trace@service_host,anti-cheating,anti-cheating@anti-cheating-77b9fd8b6b-rlrf6
+contains,trace@service,trace@service_host,web_request,web_request@Win64
+contains,trace@service,trace@service_host,queue-master,queue-master@queue-master-69f5685ccc-gkfzr
+contains,trace@service,trace@service_host,frontend-proxy,frontend-proxy@
+contains,trace@service,trace@service_host,integral,integral@integral-6785588f5c-qhq55
+contains,trace@service,trace@service_host,payment,payment@payment-554f959c5f-8z2r2
+contains,trace@service,trace@service_host,payment,payment@payment-554f959c5f-v8dhl
+contains,trace@service,trace@service_host,quoteservice,quoteservice@opentelemetry-demo-quoteservice-57599d5d8f-npxll
+contains,trace@service,trace@service_host,payment,payment@payment-554f959c5f-bhbvp
+contains,trace@service,trace@service_host,shipping,shipping@shipping-77cd6f4d9d-h4t64
+contains,trace@service,trace@service_host,cart,cart@cart-6fdd549649-dbnft
+contains,trace@service,trace@service_host,user,user@user-86f6b744dc-qz6v4
+contains,trace@service,trace@service_host,emailservice,emailservice@
+contains,trace@service,trace@service_host,queue-master,queue-master@queue-master-69f5685ccc-lnz98
+contains,trace@service,trace@service_host,user,user@user-86f6b744dc-dzfhs
+contains,trace@service,trace@service_host,trace-profiling-demo,trace-profiling-demo@iZ2zeihn2b3vxl4obnpco9Z
+contains,trace@service,trace@service_host,cartservice,cartservice@
+contains,trace@service,trace@service_host,order,order@order-68cbb566bf-2h2vv
+contains,trace@service,trace@service_host,integral,integral@integral-6785588f5c-vpcp5
+contains,trace@service,trace@service_host,adservice,adservice@opentelemetry-demo-adservice-54b77945d-8gc2r
+contains,trace@service,trace@service_host,productcatalogservice,productcatalogservice@opentelemetry-demo-productcatalogservice-568fb95968-zj5bc
+contains,trace@service,trace@service_host,frauddetectionservice,frauddetectionservice@opentelemetry-demo-frauddetectionservice-7b5f6cbc75-ss559
+contains,trace@service,trace@service_host,billing,billing@billing-65d96cd596-6sw46
+contains,trace@service,trace@service_host,payment,payment@payment-554f959c5f-cfwbs
+contains,trace@service,trace@service_host,shipping,shipping@shipping-77cd6f4d9d-zxgd5
+contains,trace@service,trace@service_host,shipping,shipping@shipping-77cd6f4d9d-fr46j
+contains,trace@service,trace@service_host,integral,integral@integral-6785588f5c-bf5x9
+contains,trace@service,trace@service_host,user,user@user-86f6b744dc-4brzr
+contains,trace@service,trace@service_host,recommendationservice,recommendationservice@
+contains,trace@service,trace@service_host,currencyservice,currencyservice@
+contains,trace@service,trace@service_host,user,user@user-86f6b744dc-pc88t
+contains,trace@service,trace@service_host,frontend,frontend@iZ2ze46gmkuo2ws8qfavagZ
+contains,trace@service,trace@service_host,shipping,shipping@shipping-77cd6f4d9d-nf5f8
+contains,trace@service,trace@service_host,catalogue,catalogue@catalogue-f96574b65-fmxmf
+contains,trace@service,trace@service_host,payment,payment@payment-554f959c5f-rgwd9
+contains,trace@service,trace@service_host,integral,integral@integral-6785588f5c-98plg
+contains,trace@service,trace@service_host,user,user@user-86f6b744dc-kthnw
+contains,trace@service,trace@service_host,user,user@user-86f6b744dc-h44sp
+contains,trace@service,trace@service_host,paymentservice,paymentservice@iZ2ze46gmkuo2ws8qfavafZ
+contains,trace@service,trace@service_host,payment,payment@payment-554f959c5f-ftn5t
+contains,trace@service,trace@service_host,shipping,shipping@shipping-77cd6f4d9d-h52jz
+contains,trace@service,trace@service_host,order,order@order-68cbb566bf-r9nrs
+contains,trace@service,trace@service_host,payment,payment@payment-554f959c5f-vggfk
+contains,trace@service,trace@service_host,shipping,shipping@shipping-77cd6f4d9d-8ftmg
+contains,trace@service,trace@service_host,user,user@user-86f6b744dc-pb74f
+contains,trace@service,trace@service_host,user,user@user-86f6b744dc-gpbhp
+contains,trace@service,trace@service_host,shippingservice,shippingservice@
+contains,trace@service,trace@service_host,anti-cheating,anti-cheating@anti-cheating-77b9fd8b6b-9sr8p
+contains,trace@service,trace@service_host,loadgenerator,loadgenerator@
+contains,trace@service,trace@service_host,payment,payment@payment-554f959c5f-4z57q
+contains,trace@service,trace@service_host,anti-cheating,anti-cheating@anti-cheating-77b9fd8b6b-7762v
+contains,trace@service,trace@service_host,integral,integral@integral-6785588f5c-dzxc7
+contains,trace@service,trace@service_host,integral,integral@integral-6785588f5c-94k44
+contains,trace@service,trace@service_host,catalogue,catalogue@catalogue-f96574b65-4pkzp
+contains,trace@service,trace@service_host,order,order@order-68cbb566bf-zd7nq
+contains,trace@service,trace@service_host,order,order@order-68cbb566bf-d4tlb
+contains,trace@service,trace@service_host,checkoutservice,checkoutservice@opentelemetry-demo-checkoutservice-6848d6bb56-f2gnw
+contains,trace@service,trace@service_host,payment,payment@payment-554f959c5f-p8lzk
+contains,trace@service,trace@service_host,order,order@order-68cbb566bf-ckgjp
+contains,trace@service,trace@service_host,featureflagservice,featureflagservice@
+contains,trace@service,trace@service_host,shipping,shipping@shipping-77cd6f4d9d-crzj5
+contains,trace@service,trace@service_host,front-end,front-end@frontend-6df9c5d8d8-hwv8c
+contains,trace@service,trace@service_host,user,user@user-86f6b744dc-tkn5g
+contains,trace@service,trace@service_host,integral,integral@integral-6785588f5c-prf2k
+contains,trace@service,trace@service_host,cart,cart@cart-6fdd549649-ngbtx
+contains,trace@service,trace@service_host,order,order@order-68cbb566bf-sjt6p
+contains,trace@service,trace@service_host,shipping,shipping@shipping-77cd6f4d9d-gj585
+contains,trace@service,trace@service_host,billing,billing@billing-65d96cd596-x4cfb
+contains,trace@service,trace@service_host,order,order@order-68cbb566bf-65chk
+contains,trace@service,trace@service_host,payment,payment@payment-554f959c5f-h8dr4
+contains,trace@service,trace@service_name,web_request,web_request@do some work before: catalogue?size=20
+contains,trace@service,trace@service_name,loadgenerator,loadgenerator@POST
+contains,trace@service,trace@service_name,cart,cart@CartRepository.save
+contains,trace@service,trace@service_name,productcatalogservice,productcatalogservice@oteldemo.ProductCatalogService/ListProducts
+contains,trace@service,trace@service_name,checkoutservice,checkoutservice@oteldemo.PaymentService/Charge
+contains,trace@service,trace@service_name,catalogue,catalogue@GET /catalogue/{id}
+contains,trace@service,trace@service_name,frontend,frontend@grpc.oteldemo.CartService/AddItem
+contains,trace@service,trace@service_name,frontend-proxy,frontend-proxy@ingress
+contains,trace@service,trace@service_name,checkoutservice,checkoutservice@orders publish
+contains,trace@service,trace@service_name,featureflagservice,featureflagservice@featureflagservice.repo.query:featureflags
+contains,trace@service,trace@service_name,web_request,web_request@do some work before: catalogue?size=10
+contains,trace@service,trace@service_name,web_request,web_request@do some work before: catalogue?size=-1
+contains,trace@service,trace@service_name,checkoutservice,checkoutservice@HTTP POST
+contains,trace@service,trace@service_name,order,order@insert data.customerOrder
+contains,trace@service,trace@service_name,web_request,web_request@do some work before: catalogue?size=150
+contains,trace@service,trace@service_name,emailservice,emailservice@send_email
+contains,trace@service,trace@service_name,cart,cart@update data.item
+contains,trace@service,trace@service_name,web_request,web_request@/img/weave1.jpg
+contains,trace@service,trace@service_name,web_request,web_request@do some work before: catalogue?size=80
+contains,trace@service,trace@service_name,cart,cart@insert data.cart
+contains,trace@service,trace@service_name,frontend,frontend@grpc.oteldemo.AdService/GetAds
+contains,trace@service,trace@service_name,cartservice,cartservice@oteldemo.FeatureFlagService/GetFlag
+contains,trace@service,trace@service_name,featureflagservice,featureflagservice@/featureflags
+contains,trace@service,trace@service_name,adservice,adservice@oteldemo.FeatureFlagService/GetFlag
+contains,trace@service,trace@service_name,checkoutservice,checkoutservice@oteldemo.CheckoutService/PlaceOrder
+contains,trace@service,trace@service_name,web_request,web_request@/customers
+contains,trace@service,trace@service_name,web_request,web_request@do some work before: catalogue?size=120
+contains,trace@service,trace@service_name,web_request,web_request@do some work before: catalogue?size=240
+contains,trace@service,trace@service_name,user,user@get users
+contains,trace@service,trace@service_name,shipping,shipping@<default> publish
+contains,trace@service,trace@service_name,emailservice,emailservice@POST /send_order_confirmation
+contains,trace@service,trace@service_name,web_request,web_request@do some work before: catalogue?size=220
+contains,trace@service,trace@service_name,queue-master,queue-master@ExportRunner.run
+contains,trace@service,trace@service_name,recommendationservice,recommendationservice@/oteldemo.FeatureFlagService/GetFlag
+contains,trace@service,trace@service_name,cartservice,cartservice@oteldemo.CartService/GetCart
+contains,trace@service,trace@service_name,order,order@CustomerOrderRepository.save
+contains,trace@service,trace@service_name,web_request,web_request@download_image: img/weave3.jpg
+contains,trace@service,trace@service_name,paymentservice,paymentservice@grpc.oteldemo.PaymentService/Charge
+contains,trace@service,trace@service_name,recommendationservice,recommendationservice@/oteldemo.RecommendationService/ListRecommendations
+contains,trace@service,trace@service_name,recommendationservice,recommendationservice@/oteldemo.ProductCatalogService/ListProducts
+contains,trace@service,trace@service_name,cart,cart@find data.cart
+contains,trace@service,trace@service_name,currencyservice,currencyservice@CurrencyService/Convert
+contains,trace@service,trace@service_name,quoteservice,quoteservice@calculate-quote
+contains,trace@service,trace@service_name,anti-cheating,anti-cheating@INSERT integral.anti_cheating_record
+contains,trace@service,trace@service_name,adservice,adservice@getAdsByCategory
+contains,trace@service,trace@service_name,billing,billing@ChaosMonkeyConfiguration.chaosMonkey
+contains,trace@service,trace@service_name,web_request,web_request@do some work before: catalogue?size=180
+contains,trace@service,trace@service_name,web_request,web_request@do some work before: catalogue?size=130
+contains,trace@service,trace@service_name,cart,cart@DELETE /carts/{customerId}
+contains,trace@service,trace@service_name,web_request,web_request@do some work before: catalogue?size=90
+contains,trace@service,trace@service_name,cart,cart@POST /carts/{customerId:.*}/items
+contains,trace@service,trace@service_name,payment,payment@POST /paymentAuth
+contains,trace@service,trace@service_name,billing,billing@OrderMessageListener.consume
+contains,trace@service,trace@service_name,cart,cart@find data.item
+contains,trace@service,trace@service_name,web_request,web_request@do some work before: catalogue?size=30
+contains,trace@service,trace@service_name,web_request,web_request@do some work before: customers
+contains,trace@service,trace@service_name,shippingservice,shippingservice@POST
+contains,trace@service,trace@service_name,cart,cart@CartRepository.delete
+contains,trace@service,trace@service_name,web_request,web_request@do some work before: catalogue?size=140
+contains,trace@service,trace@service_name,cartservice,cartservice@oteldemo.CartService/EmptyCart
+contains,trace@service,trace@service_name,front-end,front-end@GET /catalogue*
+contains,trace@service,trace@service_name,front-end,front-end@request handler - /catalogue*
+contains,trace@service,trace@service_name,web_request,web_request@do some work before: cart
+contains,trace@service,trace@service_name,integral,integral@SELECT integral.usable_integral
+contains,trace@service,trace@service_name,user,user@get cards
+contains,trace@service,trace@service_name,web_request,web_request@download_image: img/weave2.jpg
+contains,trace@service,trace@service_name,checkoutservice,checkoutservice@oteldemo.CurrencyService/Convert
+contains,trace@service,trace@service_name,user,user@GET /addresses
+contains,trace@service,trace@service_name,cart,cart@GET /carts/{customerId:.*}/items
+contains,trace@service,trace@service_name,frontend,frontend@grpc.oteldemo.RecommendationService/ListRecommendations
+contains,trace@service,trace@service_name,front-end,front-end@HTTP DELETE
+contains,trace@service,trace@service_name,shipping,shipping@POST /shipping
+contains,trace@service,trace@service_name,integral,integral@INSERT integral.integral_recored
+contains,trace@service,trace@service_name,front-end,front-end@request handler - /cart
+contains,trace@service,trace@service_name,cart,cart@insert data.item
+contains,trace@service,trace@service_name,adservice,adservice@getRandomAds
+contains,trace@service,trace@service_name,cart,cart@delete data.cart
+contains,trace@service,trace@service_name,web_request,web_request@do some work before: catalogue?size=60
+contains,trace@service,trace@service_name,shippingservice,shippingservice@oteldemo.ShippingService/GetQuote
+contains,trace@service,trace@service_name,trace-profiling-demo,trace-profiling-demo@HelloWorldController.sayHello
+contains,trace@service,trace@service_name,frontend,frontend@grpc.oteldemo.CheckoutService/PlaceOrder
+contains,trace@service,trace@service_name,frontend-proxy,frontend-proxy@router frontend egress
+contains,trace@service,trace@service_name,checkoutservice,checkoutservice@prepareOrderItemsAndShippingQuoteFromCart
+contains,trace@service,trace@service_name,checkoutservice,checkoutservice@oteldemo.CartService/GetCart
+contains,trace@service,trace@service_name,integral,integral@IntegralScheduled.expireIntegralTask
+contains,trace@service,trace@service_name,recommendationservice,recommendationservice@get_product_list
+contains,trace@service,trace@service_name,loadgenerator,loadgenerator@GET
+contains,trace@service,trace@service_name,web_request,web_request@do some work before: catalogue?size=70
+contains,trace@service,trace@service_name,web_request,web_request@/img/weave3.jpg
+contains,trace@service,trace@service_name,anti-cheating,anti-cheating@POST /api/v1/checkIntegral
+contains,trace@service,trace@service_name,catalogue,catalogue@GET /catalogue
+contains,trace@service,trace@service_name,user,user@addresses from db
+contains,trace@service,trace@service_name,integral,integral@SELECT integral
+contains,trace@service,trace@service_name,web_request,web_request@do some work before: catalogue?size=200
+contains,trace@service,trace@service_name,emailservice,emailservice@sinatra.render_template
+contains,trace@service,trace@service_name,billing,billing@ConsoleOutProcessService.process
+contains,trace@service,trace@service_name,billing,billing@order-topic process
+contains,trace@service,trace@service_name,trace-profiling-demo,trace-profiling-demo@GET /hello
+contains,trace@service,trace@service_name,web_request,web_request@/catalogue
+contains,trace@service,trace@service_name,user,user@GET /login
+contains,trace@service,trace@service_name,cart,cart@update data.cart
+contains,trace@service,trace@service_name,cartservice,cartservice@HTTP POST
+contains,trace@service,trace@service_name,web_request,web_request@do some work before: catalogue
+contains,trace@service,trace@service_name,shippingservice,shippingservice@oteldemo.ShippingService/ShipOrder
+contains,trace@service,trace@service_name,web_request,web_request@do some work before: catalogue?size=40
+contains,trace@service,trace@service_name,user,user@users from db
+contains,trace@service,trace@service_name,billing,billing@ChaosProcessorService.process
+contains,trace@service,trace@service_name,frontend,frontend@GET
+contains,trace@service,trace@service_name,front-end,front-end@GET /login
+contains,trace@service,trace@service_name,front-end,front-end@POST /orders
+contains,trace@service,trace@service_name,web_request,web_request@do some work before: catalogue?size=160
+contains,trace@service,trace@service_name,order,order@order-topic publish
+contains,trace@service,trace@service_name,order,order@POST
+contains,trace@service,trace@service_name,paymentservice,paymentservice@charge
+contains,trace@service,trace@service_name,checkoutservice,checkoutservice@oteldemo.CartService/EmptyCart
+contains,trace@service,trace@service_name,productcatalogservice,productcatalogservice@oteldemo.ProductCatalogService/GetProduct
+contains,trace@service,trace@service_name,web_request,web_request@do some work before: catalogue?size=190
+contains,trace@service,trace@service_name,web_request,web_request@do some work before: catalogue?size=50
+contains,trace@service,trace@service_name,web_request,web_request@do some work before: catalogue?size=210
+contains,trace@service,trace@service_name,frontend,frontend@grpc.oteldemo.CartService/GetCart
+contains,trace@service,trace@service_name,order,order@update data.customerOrder
+contains,trace@service,trace@service_name,cartservice,cartservice@oteldemo.CartService/AddItem
+contains,trace@service,trace@service_name,web_request,web_request@download_image: catalogue/images/holy_1.jpeg
+contains,trace@service,trace@service_name,web_request,web_request@/catalogue/images/holy_2.jpeg
+contains,trace@service,trace@service_name,cart,cart@ItemRepository.save
+contains,trace@service,trace@service_name,web_request,web_request@do some work before: catalogue?size=170
+contains,trace@service,trace@service_name,order,order@ResponseFacade.sendError
+contains,trace@service,trace@service_name,cart,cart@CartRepository.findByCustomerId
+contains,trace@service,trace@service_name,checkoutservice,checkoutservice@oteldemo.ShippingService/ShipOrder
+contains,trace@service,trace@service_name,web_request,web_request@do some work before: catalogue?size=100
+contains,trace@service,trace@service_name,quoteservice,quoteservice@POST /getquote
+contains,trace@service,trace@service_name,front-end,front-end@HTTP GET
+contains,trace@service,trace@service_name,web_request,web_request@do some work before: catalogue?size=250
+contains,trace@service,trace@service_name,quoteservice,quoteservice@{closure}
+contains,trace@service,trace@service_name,frontend,frontend@POST
+contains,trace@service,trace@service_name,frontend,frontend@grpc.oteldemo.ProductCatalogService/GetProduct
+contains,trace@service,trace@service_name,featureflagservice,featureflagservice@/oteldemo.FeatureFlagService/GetFlag
+contains,trace@service,trace@service_name,web_request,web_request@do some work before: catalogue?size=230
+contains,trace@service,trace@service_name,user,user@attributes from db
+contains,trace@service,trace@service_name,frontend,frontend@HTTP GET
+contains,trace@service,trace@service_name,frauddetectionservice,frauddetectionservice@orders process
+contains,trace@service,trace@service_name,front-end,front-end@HTTP POST
+contains,trace@service,trace@service_name,order,order@GET
+contains,trace@service,trace@service_name,front-end,front-end@DELETE /cart
+contains,trace@service,trace@service_name,catalogue,catalogue@GetProjectList
+contains,trace@service,trace@service_name,user,user@login user
+contains,trace@service,trace@service_name,front-end,front-end@request handler - /orders
+contains,trace@service,trace@service_name,catalogue,catalogue@GetProjectDetail
+contains,trace@service,trace@service_name,front-end,front-end@POST /cart
+contains,trace@service,trace@service_name,integral,integral@INSERT integral.usable_integral
+contains,trace@service,trace@service_name,adservice,adservice@oteldemo.AdService/GetAds
+contains,trace@service,trace@service_name,frontend,frontend@HTTP POST
+contains,trace@service,trace@service_name,integral,integral@POST /add
+contains,trace@service,trace@service_name,user,user@GET /cards
+contains,trace@service,trace@service_name,front-end,front-end@request handler - /login
+contains,trace@service,trace@service_name,web_request,web_request@/catalogue/images/holy_1.jpeg
+contains,trace@service,trace@service_name,checkoutservice,checkoutservice@oteldemo.ProductCatalogService/GetProduct
+contains,trace@service,trace@service_name,web_request,web_request@download_image: catalogue/images/holy_2.jpeg
+contains,trace@service,trace@service_name,web_request,web_request@download_image: img/weave1.jpg
+contains,trace@service,trace@service_name,web_request,web_request@/cart
+contains,trace@service,trace@service_name,web_request,web_request@/img/weave2.jpg
+contains,trace@service,trace@service_name,user,user@GET /customers
+contains,trace@service,trace@service_name,cart,cart@GET /carts/{customerId}/merge
+contains,trace@service,trace@service_name,checkoutservice,checkoutservice@oteldemo.ShippingService/GetQuote
+contains,trace@service,trace@service_name,anti-cheating,anti-cheating@POST
+contains,trace@service,trace@service_name,order,order@POST /orders
+contains,trace@service,trace@service_name,productcatalogservice,productcatalogservice@oteldemo.FeatureFlagService/GetFlag
+contains,trace@service,trace@service_name,web_request,web_request@do some work before: catalogue?size=110
