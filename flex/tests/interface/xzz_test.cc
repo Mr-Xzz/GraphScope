@@ -107,12 +107,33 @@ class NbrListArray {
 
 template <typename T>
 class AdjList {
-  class Iterator {};
+//  class Iterator {};
+//
+// public:
+//  Iterator begin() const;
+//  Iterator end() const;
+//  size_t size() const;
 
  public:
-  Iterator begin() const;
-  Iterator end() const;
-  size_t size() const;
+  using Iterator = typename std::vector<T>::const_iterator;
+  //  class Iterator {};
+  [[nodiscard]] Iterator begin() const {
+    return adjs_.begin();
+  }
+  [[nodiscard]] Iterator end() const {
+    return adjs_.end();
+  }
+  inline size_t size() const {
+    return adjs_.size();
+  }
+
+  std::vector<T>& get_vector() {
+    return adjs_;
+  }
+
+ private:
+  std::vector<T> adjs_;
+
 };
 
 //提供自己的实现
@@ -157,9 +178,29 @@ class SubGraph {
 template <typename T>
 class AdjListArray {
  public:
-  size_t size() const;
+//  size_t size() const;
+//
+//  AdjList<T> get(size_t i) const;
 
-  AdjList<T> get(size_t i) const;
+  // 返回指定索引处的 NbrList
+  [[nodiscard]] AdjList<T> get(size_t index) const {
+    return data_.at(index);
+  }
+  [[nodiscard]] size_t size() const {
+    return data_.size();
+  }
+  void resize(size_t new_size) {
+    data_.resize(new_size);
+  }
+  // 自己加的方法
+  std::vector<T>& get_vector(size_t i) {
+    if (data_.size() > i) {
+      return data_.at(i).get_vector();
+    }
+    throw std::runtime_error("index out of range");
+  }
+ private:
+  std::vector<AdjList<T>> data_;
 };
 
 // Real implementation of the storage
@@ -473,6 +514,46 @@ class TestGraph {
                            const gs::Direction& direction,
                            size_t limit = INT_MAX) const {
 
+        std::string outkey = std::to_string(edge_label_id) + storage_.kLabelConnector +
+                             std::to_string(src_label_id) + storage_.kLabelConnector +
+                             std::to_string(dst_label_id);
+        std::string inkey = std::to_string(edge_label_id) + storage_.kLabelConnector +
+                            std::to_string(dst_label_id) + storage_.kLabelConnector +
+                            std::to_string(src_label_id);
+        std::vector<ActualStorage::edge_id_t> relatedIds = std::vector<ActualStorage::edge_id_t>();
+        if (direction == gs::Direction::Out || direction == gs::Direction::Both) {
+          if (storage_.edgeTripleToIds.count(outkey)) {
+            auto vec = storage_.edgeTripleToIds.at(outkey);
+            relatedIds.insert(relatedIds.end(), vec.begin(), vec.end());
+          }
+        }
+        if (direction == gs::Direction::In || direction == gs::Direction::Both) {
+          if (storage_.edgeTripleToIds.count(outkey)) {
+            auto vec = storage_.edgeTripleToIds.at(outkey);
+            relatedIds.insert(relatedIds.end(), vec.begin(), vec.end());
+          }
+        }
+        for (const auto& id : relatedIds) {
+          std::cout << id << ", ";
+        }
+        std::cout<<std::endl;
+
+        // template 的含义和使用？
+        AdjListArray<T> res;
+        res.resize(vids.size());
+        for (size_t i = 0; i < vids.size(); ++i) {
+          auto v = vids[i];
+          auto& vec = res.get_vector(i);
+          for (auto eid : relatedIds) {
+            ActualStorage::vertex_id_t sid = storage_.vertexToId.at(storage_.srcIDs[eid]);
+            ActualStorage::vertex_id_t did = storage_.vertexToId.at(storage_.destIDs[eid]);
+            if (v == sid || v == did) {
+//              dynamic_cast<T>(ePtr)
+              vec.emplace_back(eid);
+            }
+          }
+        }
+        return res;
   }
 
   /**
@@ -749,6 +830,21 @@ class LookupGraph {
       std::cout << fourthLayerVid << ", ";
     }
     std::cout << std::endl;
+
+
+
+
+    auto edgesRes = graph.GetEdges<uint64_t>(srcLabelId, dstLabelId, edgeLabelId, thirdLayerVids, gs::Direction::Out);
+    std::cout << "GetEdges: "<< edgesRes.size() << " (pcs)" << std::endl;
+    for (long unsigned int i = 0; i < edgesRes.size(); i++ ) {
+      auto adjList = edgesRes.get(i);
+      std::cout << std::endl << thirdLayerVids[i] << "'s AdjList.size():" << adjList.size() << ", edges: ";
+      for (auto it = adjList.begin(); it != adjList.end(); it++) {
+        uint64_t adj = *it;
+        std::cout << adj << ", ";
+      }
+    }
+
 
 
     results::CollectiveResults results;
