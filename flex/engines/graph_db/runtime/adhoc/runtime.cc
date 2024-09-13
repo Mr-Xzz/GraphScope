@@ -251,6 +251,10 @@ bl::result<Context> runtime_eval(
   return runtime_eval_impl(plan, Context(), txn, params);
 }
 
+void xzz_test() {
+  std::cout<<"success"<<std::endl;
+};
+
 }  // namespace runtime
 
 }  // namespace gs

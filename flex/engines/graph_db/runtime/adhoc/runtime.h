@@ -30,6 +30,8 @@ bl::result<Context> runtime_eval(
     const physical::PhysicalPlan& plan, const ReadTransaction& txn,
     const std::map<std::string, std::string>& params);
 
+void xzz_test();
+
 }  // namespace runtime
 
 }  // namespace gs

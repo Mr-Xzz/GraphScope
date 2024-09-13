@@ -8,6 +8,15 @@ add_library(runtime_adhoc SHARED ${ADHOC_SOURCES})
 target_link_libraries(runtime_adhoc runtime_common)
 install_flex_target(runtime_adhoc)
 
+file(GLOB_RECURSE COMMON_SOURCES "common/*.cc")
+add_library(runtime_common_static STATIC ${COMMON_SOURCES})
+target_link_libraries(runtime_common_static ${Boost_LIBRARIES} flex_utils flex_plan_proto)
+install_flex_target(runtime_common_static)
+
+file(GLOB_RECURSE ADHOC_SOURCES "adhoc/*.cc")
+add_library(runtime_adhoc_static STATIC ${ADHOC_SOURCES})
+target_link_libraries(runtime_adhoc_static runtime_common_static)
+install_flex_target(runtime_adhoc_static)
 
 install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
         DESTINATION include/flex/engines/graph_db
