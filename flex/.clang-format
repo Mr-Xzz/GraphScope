@@ -11,3 +11,4 @@ SpaceAfterCStyleCast: true
 AlignAfterOpenBracket: Align
 SortIncludes: true
 IncludeBlocks: Preserve
+ColumnLimit: 0

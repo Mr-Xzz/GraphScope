@@ -23,3 +23,16 @@ install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
         FILES_MATCHING
         PATTERN "*.h"
 )
+# 收集所有的.h文件，包括子目录
+file(GLOB_RECURSE HEADER_FILES "${CMAKE_CURRENT_SOURCE_DIR}/graph_db/*.h")
+
+# 安装文件，保留目录结构
+foreach(header_file ${HEADER_FILES})
+    # 获取文件的相对路径
+    get_filename_component(relative_path ${header_file} DIRECTORY)
+    # 获取 graph_db 目录的相对路径
+    string(REPLACE "${CMAKE_CURRENT_SOURCE_DIR}/graph_db" "" include_path ${relative_path})
+    # 安装头文件，保留结构
+    install(FILES ${header_file}
+            DESTINATION include/flex/engines/graph_db${include_path})
+endforeach()

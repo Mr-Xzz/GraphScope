@@ -252,7 +252,7 @@ bl::result<Context> runtime_eval(
 }
 
 void xzz_test() {
-  std::cout<<"success"<<std::endl;
+  std::cout << "success" << std::endl;
 };
 
 }  // namespace runtime
